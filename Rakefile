@@ -6,6 +6,7 @@ task :install => [:submodules] do
   linkables += Dir.glob('git/*') if want_to_install?('git')
   linkables += Dir.glob('{vim,vimrc}') if want_to_install?('vim')
   linkables += Dir.glob('{zsh,zshrc}') if want_to_install?('zsh')
+  Rake::Task['omz'].invoke
 
   skip_all = false
   overwrite_all = false
