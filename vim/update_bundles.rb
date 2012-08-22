@@ -6,6 +6,7 @@ git_bundles = %w{
 	git://github.com/tpope/vim-surround.git
 	git://github.com/altercation/vim-colors-solarized.git	
   git://github.com/tomtom/tcomment_vim.git
+  git://github.com/nathanaelkane/vim-indent-guides.git
 }
 
 require 'fileutils'
