@@ -40,6 +40,13 @@ task :install => [:submodules] do
   success_msg("installed")
 end
 
+task :omz do
+  if File.exist?("#{ENV['HOME']}/.oh-my-zsh")
+    run %{ ln -nfs #{ENV["PWD"]}/oh-my-zsh/plugins $HOME/.oh-my-zsh/custom/ } if want_to_install?('zsh plugins')
+    run %{ ln -nfs #{ENV["PWD"]}/oh-my-zsh/themes/* $HOME/.oh-my-zsh/custom/ } if want_to_install?('zsh themes')
+  end
+end
+
 desc "Init and update submodules."
 task :submodules do
   sh('git submodule update --init')
