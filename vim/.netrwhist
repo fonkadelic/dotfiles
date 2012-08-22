@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/Users/berni/Sites/powwow/sites'
+let g:netrw_dirhist_2='/Users/berni/Dev/iOS/Projects/RealityMaps/RealityMaps'
+let g:netrw_dirhist_3='/Users/berni/.cocoapods/master'
+let g:netrw_dirhist_4='/Users/berni/.oh-my-zsh/themes'
+let g:netrw_dirhist_5='/Users/berni/Dev/iOS/Projects/RealityMaps/.git'
+let g:netrw_dirhist_6='/Users/berni/.vim'
