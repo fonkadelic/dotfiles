@@ -17,12 +17,13 @@ set backspace=indent,eol,start      " Allow backspace in insert mode
 set numberwidth=5                   " Width value of the Line number
 set encoding=utf-8
 set showcmd                         " display incomplete commands
-set showmode                        " Show current mode down the bottom
+"set showmode                        " Show current mode down the bottom
 set ruler                           " Show the cursor position
 set laststatus=2                    " Always show the statusline
 set cursorline                      " Shows the horizontal cursor line
 set gcr=a:blinkon0                  " Disable cursor blink
 set visualbell                      " No sounds
+set noshowmode                      " Hide current mode (for powerline)
 
 set autoread                        "Reload files changed outside vim
 
@@ -113,6 +114,16 @@ vnoremap > >gv
 
 " Toggle between absolute and relative line numbers
 nnoremap <leader>l :NumbersToggle<CR>
+
+" switch between the currently open buffer and the previous one 
+nnoremap <leader><leader> <c-^>
+
+" Yank text to the OS X clipboard
+noremap <leader>y "*y
+noremap <leader>yy "*Y
+
+" Preserve indentation while pasting text from the OS X clipboard
+noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
 
 
 " Include some settings (cleaner .vimrc)
