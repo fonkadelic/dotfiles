@@ -33,4 +33,4 @@ alias sgi='sudo gem install --no-ri --no-rdoc'
 alias blsync='rsync --progress --partial --rsh="ssh"'
 
 # Jenkins CI
-alias jenkins='java -jar /usr/local/Cellar/jenkins/1.476/libexec/jenkins.war'
+alias jenkins="bl_jenkins"

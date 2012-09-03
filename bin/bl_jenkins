@@ -10,6 +10,15 @@ usage()
   echo "usage: jenkins (start|stop|restart|status)"
 }
 
+update()
+{
+  JENKINS_PATH="/usr/local/Cellar/jenkins"
+  JENKINS_VERSION=`ls "$JENKINS_PATH" | tail -n 1`
+
+  daemon_stop
+  cp "${JENKINS_PATH}/${JENKINS_VERSION}/homebrew.mxcl.jenkins.plist" ~/Library/LaunchAgents/
+}
+
 daemon_start()
 {
   launchctl load ~/Library/LaunchAgents/homebrew.mxcl.jenkins.plist
@@ -46,6 +55,11 @@ case $1 in
         restart)
         echo -n "Restarting $DESC"
         daemon_restart
+        echo "."
+        ;;
+        update)
+        echo -n "Updating $DESC"
+        update
         echo "."
         ;;
         *)
