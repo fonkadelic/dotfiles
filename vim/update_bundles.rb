@@ -7,6 +7,14 @@ git_bundles = %w{
 	git://github.com/altercation/vim-colors-solarized.git	
   git://github.com/tomtom/tcomment_vim.git
   git://github.com/nathanaelkane/vim-indent-guides.git
+  git://github.com/kana/vim-arpeggio.git
+  git://github.com/scrooloose/nerdtree.git
+  git://github.com/jistr/vim-nerdtree-tabs.git
+  git://github.com/vim-scripts/IndexedSearch.git  
+  git://github.com/sjbach/lusty.git
+  git://github.com/Raimondi/delimitMate.git
+  git://github.com/vim-scripts/SearchComplete.git
+  git://github.com/tjennings/git-grep-vim.git
 }
 
 require 'fileutils'
