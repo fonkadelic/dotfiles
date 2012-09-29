@@ -3,6 +3,9 @@ alias df='df -h'
 alias ll='ls -alGh'
 alias du='du -h -d 2'
 
+# show me files matching "ls grep"
+alias llg='ll | grep'
+
 # PS
 alias psa="ps aux"
 alias psg="ps aux | grep "
@@ -15,6 +18,9 @@ alias osx="bl_osx"
 
 # extract archives
 alias extract="bl_extract"
+
+# restart quicklook
+alias restartql="qlmanage -r"
 
 # get ip
 alias localip="bl_localip"
