@@ -77,6 +77,29 @@ vmap ,{ c{<C-R>"}<ESC>
 " put the cursor right after the quote
 imap <C-a> <esc>wa
 
+" move up/down quickly by using Cmd-j, Cmd-k
+" which will move us around by functions
+nnoremap <silent> <D-j> }
+nnoremap <silent> <D-k> {
+
+" ,q to toggle quickfix window (where you have stuff like GitGrep)
+" ,oq to open it back up (rare)
+nmap <silent> ,qc :cclose<CR>
+nmap <silent> ,qo :copen<CR>
+
+"GitGrep - open up a git grep line, with a quote started for the search
+nnoremap ,gg :GitGrep ""<left>
+"GitGrep Current Partial
+nnoremap ,gcp :GitGrepCurrentPartial<CR>
+"GitGrep Current File
+nnoremap ,gcf :call GitGrep(expand("%:t:r"))<CR>
+" Center line on previous/next fix.
+map - :cprev<CR> zz
+map + :cnext<CR> zz
+" Center line in previous/next file.
+map g- :cpfile<CR> zz
+map g+ :cnfile<CR> zz
+
 " MacVIM Config
 if has("gui_macvim")
   

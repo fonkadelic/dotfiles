@@ -1,5 +1,26 @@
 # vim-nerdtree-tabs changelog
 
+## v1.4.0
+
+* When synchronizing NERDTree scroll and cursor position, synchronize also
+  NERDTree window width. (Thanks EinfachToll.)
+
+* When Vim is given a directory as a parameter, `:cd` into it. (Thanks DAddYE.)
+
+* New commands `NERDTreeTabsOpen`, `NERDTreeTabsClose` and
+  `NERDTreeMirrorOpen`. They are not a new functionality, just externalize
+  stuff that was previously accessible only inside the plugin.
+
+* New commands `NERDTreeSteppedOpen` and `NERDTreeSteppedClose` for combined
+  opening/closing of a NERDTree and focus switching. Works locally for a tab.
+  (Thanks ereOn.)
+
+* Fixed an error when restoring a session caused by accessing an undefined
+  variable. (Thanks ereOn.)
+
+* Fixed opening two NERDTrees when `NERDTreeHijackNetrw = 1` and launching
+  with a directory name as a parameter.
+
 ## v1.3.0
 
 * Focus synchronization - ability to have focus on NERDTree after tab switch

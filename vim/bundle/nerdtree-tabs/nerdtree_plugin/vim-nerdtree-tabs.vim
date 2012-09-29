@@ -50,24 +50,29 @@ if !exists('g:nerdtree_tabs_focus_on_files')
   let g:nerdtree_tabs_focus_on_files = 0
 endif
 
+" when starting up with a directory name as a parameter, cd into it
+if !exists('g:nerdtree_tabs_startup_cd')
+  let g:nerdtree_tabs_startup_cd = 1
+endif
+
 " === plugin mappings ===
 noremap <silent> <script> <Plug>NERDTreeTabsToggle :call <SID>NERDTreeToggleAllTabs()
+noremap <silent> <script> <Plug>NERDTreeTabsOpen :call <SID>NERDTreeMirrorOrCreateAllTabs()
+noremap <silent> <script> <Plug>NERDTreeTabsClose :call <SID>NERDTreeCloseAllTabs()
+noremap <silent> <script> <Plug>NERDTreeMirrorOpen :call <SID>NERDTreeMirrorOrCreate()
 noremap <silent> <script> <Plug>NERDTreeMirrorToggle :call <SID>NERDTreeMirrorToggle()
+noremap <silent> <script> <Plug>NERDTreeSteppedOpen :call <SID>NERDTreeSteppedOpen()
+noremap <silent> <script> <Plug>NERDTreeSteppedClose :call <SID>NERDTreeSteppedClose()
 
 " === plugin commands ===
 command! NERDTreeTabsToggle call <SID>NERDTreeToggleAllTabs()
+command! NERDTreeTabsOpen call <SID>NERDTreeMirrorOrCreateAllTabs()
+command! NERDTreeTabsClose call <SID>NERDTreeCloseAllTabs()
+command! NERDTreeMirrorOpen call <SID>NERDTreeMirrorOrCreate()
 command! NERDTreeMirrorToggle call <SID>NERDTreeMirrorToggle()
+command! NERDTreeSteppedOpen call <SID>NERDTreeSteppedOpen()
+command! NERDTreeSteppedClose call <SID>NERDTreeSteppedClose()
 
-
-" === initialization ===
-
-let s:disable_handlers_for_tabdo = 0
-
-" global on/off NERDTree state
-" the exists check is to enable script reloading without resetting the state
-if !exists('s:nerdtree_globally_active')
-  let s:nerdtree_globally_active = 0
-endif
 
 " === NERDTree manipulation (opening, closing etc.) ===
 
@@ -223,12 +228,42 @@ fun! s:IsCurrentWindowNERDTree()
   return exists("t:NERDTreeBufName") && bufwinnr(t:NERDTreeBufName) == winnr()
 endfun
 
+" === Stepped Open/Close functions ===
+
+" focus the NERDTree view, creating one first if none is present
+fun! s:NERDTreeSteppedOpen()
+  if !s:IsCurrentWindowNERDTree()
+    if s:IsNERDTreeOpenInCurrentTab()
+      call s:NERDTreeFocus()
+    else
+      call s:NERDTreeMirrorOrCreate()
+    endif
+  endif
+endfun
+
+" unfocus the NERDTree view or closes it if it hadn't had focus at the time of
+" the call
+fun! s:NERDTreeSteppedClose()
+  if s:IsCurrentWindowNERDTree()
+    call s:NERDTreeUnfocus()
+  else
+    let l:nerdtree_open = s:IsNERDTreeOpenInCurrentTab()
+
+    if l:nerdtree_open
+      silent NERDTreeClose
+    endif
+  endif
+endfun
+
 " === NERDTree view manipulation (scroll and cursor positions) ===
 
 fun! s:SaveNERDTreeViewIfPossible()
   if exists("t:NERDTreeBufName") && bufwinnr(t:NERDTreeBufName) == winnr()
     " save scroll and cursor etc.
     let s:nerdtree_view = winsaveview()
+
+    " save NERDTree window width
+    let s:nerdtree_width = winwidth(winnr())
 
     " save buffer name (to be able to correct desync by commands spawning
     " a new NERDTree instance)
@@ -239,7 +274,8 @@ endfun
 fun! s:RestoreNERDTreeViewIfPossible()
   " if nerdtree exists in current tab, it is the current window and if saved
   " state is available, restore it
-  if exists("t:NERDTreeBufName") && bufwinnr(t:NERDTreeBufName) != -1 && exists('s:nerdtree_view')
+  let l:view_state_saved = exists('s:nerdtree_view') && exists('s:nerdtree_width')
+  if s:IsNERDTreeOpenInCurrentTab() && l:view_state_saved
     let l:current_winnr = winnr()
     let l:nerdtree_winnr = bufwinnr(t:NERDTreeBufName)
 
@@ -250,8 +286,11 @@ fun! s:RestoreNERDTreeViewIfPossible()
       silent NERDTreeClose
       silent NERDTreeMirror
     endif
-    " restore cursor and scroll
+    " restore cursor, scroll and window width
     call winrestview(s:nerdtree_view)
+    exe "vertical resize " . s:nerdtree_width
+
+    " switch back to whatever window was focused before
     exe l:current_winnr . "wincmd w"
   endif
 endfun
@@ -262,6 +301,22 @@ fun! s:LoadPlugin()
   if exists('g:nerdtree_tabs_loaded')
     return
   endif
+
+  let g:NERDTreeHijackNetrw = 0
+
+  let s:disable_handlers_for_tabdo = 0
+
+  " global on/off NERDTree state
+  " the exists check is to enable script reloading without resetting the state
+  if !exists('s:nerdtree_globally_active')
+    let s:nerdtree_globally_active = 0
+  endif
+
+  " global focused/unfocused NERDTree state
+  " the exists check is to enable script reloading without resetting the state
+  if !exists('s:is_nerdtree_globally_focused')
+    call s:SaveGlobalFocus()
+  end
 
   autocmd VimEnter * call <SID>VimEnterHandler()
   autocmd TabEnter * call <SID>TabEnterHandler()
@@ -319,6 +374,11 @@ fun! s:WinLeaveHandler()
 endfun
 
 fun! s:VimEnterHandler()
+  " if the argument to vim is a directory, cd into it
+  if g:nerdtree_tabs_startup_cd && isdirectory(argv(0))
+    exe "cd " . argv(0)
+  endif
+
   let l:open_nerd_tree_on_startup = (g:nerdtree_tabs_open_on_console_startup && !has('gui_running')) ||
                                   \ (g:nerdtree_tabs_open_on_gui_startup && has('gui_running'))
   " this makes sure that globally_active is true when using 'gvim .'
@@ -328,7 +388,9 @@ fun! s:VimEnterHandler()
     let l:focus_file = !s:ShouldFocusBeOnNERDTreeAfterStartup()
     let l:main_bufnr = bufnr('%')
 
-    call s:NERDTreeMirrorOrCreateAllTabs()
+    if !s:IsNERDTreePresentInCurrentTab()
+      call s:NERDTreeMirrorOrCreateAllTabs()
+    endif
 
     if l:focus_file && g:nerdtree_tabs_smart_startup_focus
       exe bufwinnr(l:main_bufnr) . "wincmd w"

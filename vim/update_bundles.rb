@@ -15,6 +15,7 @@ git_bundles = %w{
   git://github.com/Raimondi/delimitMate.git
   git://github.com/vim-scripts/SearchComplete.git
   git://github.com/tjennings/git-grep-vim.git
+  git://github.com/tjennings/git-grep-vim.git
 }
 
 require 'fileutils'
