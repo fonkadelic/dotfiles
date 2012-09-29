@@ -20,6 +20,8 @@
   ha = shortlog -sn
   type = cat-file -t
   dump = cat-file -p
+  r = rm
+  rc = rm --cached
 
   # diff
   d = diff                          # diff unstaged changes
