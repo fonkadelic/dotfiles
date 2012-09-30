@@ -1,0 +1,7 @@
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+# Open files in Quick Look.
+(( $# > 0 )) && qlmanage -p "$@" &> /dev/null
+

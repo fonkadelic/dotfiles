@@ -22,8 +22,19 @@ alias osx="bl_osx"
 # extract archives
 alias extract="bl_extract"
 
+# open files in qucklook
+alias ql="bl_ql"
 # restart quicklook
-alias restartql="qlmanage -r"
+alias ql-restart="qlmanage -r"
+
+# prints the current Finder directory.
+alias pfd="bl_pfd"
+# prints the current Finder selection.
+alias pfs="bl_pfs" 
+# Change directory to the current Finder directory.
+alias cdf='cd "$(bl_pfd)"'
+# Push directory to the current Finder directory.
+alias pushdf='pushd "$(bl_pfd)"'
 
 # get ip
 alias localip="bl_localip"
