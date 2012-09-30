@@ -21,7 +21,3 @@ function precmd () {
 # Init rbenv
 eval "$(rbenv init -)"
 
-# Put secret configuration settings in ~/.secrets
-if [[ -a ~/.secrets ]] then
-  source ~/.secrets
-fi
