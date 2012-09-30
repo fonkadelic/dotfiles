@@ -10,6 +10,9 @@ alias llg='ll | grep'
 alias psa="ps aux"
 alias psg="ps aux | grep "
 
+# Hub (http://defunkt.io/hub/)
+#alias git="hub"
+
 # MacVim
 alias v="bl_mvim"
 

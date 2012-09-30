@@ -2,10 +2,14 @@ require 'rake'
 
 desc "Hook dotfiles into system-standard positions."
 task :install => [:submodules] do
+
+  Rake::Task['brew'].invoke
+  
   linkables = []
   linkables += Dir.glob('git/*') if want_to_install?('git')
   linkables += Dir.glob('{vim,vimrc}') if want_to_install?('vim')
   linkables += Dir.glob('{zsh,zshrc}') if want_to_install?('zsh')
+  
   Rake::Task['omz'].invoke
 
   skip_all = false
@@ -46,6 +50,23 @@ task :omz do
     run %{ ln -nfs #{ENV["PWD"]}/oh-my-zsh/plugins $HOME/.oh-my-zsh/custom/ } if want_to_install?('zsh plugins')
     run %{ ln -nfs #{ENV["PWD"]}/oh-my-zsh/themes/* $HOME/.oh-my-zsh/custom/ } if want_to_install?('zsh themes')
   end
+end
+
+desc "Install homebrew & some packages"
+task :brew do
+  puts "======================================================"
+  puts "Installing Homebrew, the OSX package manager...If it's"
+  puts "already installed, this will do nothing."
+  puts "======================================================"
+  run %{ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"}
+  puts
+  puts
+  puts "======================================================"
+  puts "Installing Homebrew packages...There may be some warnings."
+  puts "======================================================"
+  run %{brew install ack ctags git hub rbenv ruby-build z tree macvim --override-system-vim}
+  puts
+  puts
 end
 
 desc "Init and update submodules."
