@@ -64,7 +64,7 @@ task :brew do
   puts "======================================================"
   puts "Installing Homebrew packages...There may be some warnings."
   puts "======================================================"
-  run %{brew install ack ctags git hub rbenv ruby-build z tree macvim --override-system-vim}
+  run %{brew install ack ctags git hub rbenv ruby-build z ssh-copy-id tree macvim --override-system-vim}
   puts
   puts
 end
