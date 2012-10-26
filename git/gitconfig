@@ -41,6 +41,10 @@
 	autocrlf = false
   editor = vim
   excludesfile = ~/.dotfiles/git/gitignore
+[diff]
+  tool = opendiff
+[merge]
+  tool = opendiff
 [url "git@github.com:"]
   insteadOf = "gh:"
   pushInsteadOf = "github:"
