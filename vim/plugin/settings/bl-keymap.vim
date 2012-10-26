@@ -38,7 +38,7 @@ map <D-/> :TComment<CR>
 imap <D-/> <Esc>:TComment<CR>i
 
 " nerd tree
-nmap ,n :NERDTreeMirrorToggle<CR> 
+nmap ,n :NERDTreeTabsToggle<CR> 
 nmap ,N :NERDTreeFind<CR>
 
 " ," Surround a word with "quotes"
