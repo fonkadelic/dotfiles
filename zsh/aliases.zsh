@@ -1,3 +1,5 @@
+dotfiles=$HOME/.dotfiles
+
 # Show human friendly numbers and colors
 alias df='df -h'
 alias ll='ls -alGh'
@@ -18,6 +20,9 @@ alias v="bl_mvim"
 
 # set my osx defaults
 alias osx="bl_osx"
+
+# edit vim keymapping
+alias vikey="vim $dotfiles/zsh/aliases.zsh"
 
 # extract archives
 alias extract="bl_extract"
