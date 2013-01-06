@@ -157,7 +157,7 @@ chflags nohidden ~/Library
 #chflags nohidden ~/bin
 
 # Disable/Enable local Time Machine backups
-# hash tmutil &> /dev/null && sudo tmutil disablelocal
+hash tmutil &> /dev/null && sudo tmutil disablelocal
 # sudo tmutil enablelocal
 
 # QuickLook: Enable Text-Selection
