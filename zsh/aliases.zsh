@@ -48,3 +48,6 @@ alias blsync='rsync --progress --partial --rsh="ssh"'
 
 # Jenkins CI
 alias jenkins="bl_jenkins"
+
+# GitHub
+alias github-browse="git-hub-browse"
