@@ -1,5 +1,15 @@
 require 'rake'
 
+class String
+  def self.colorize(text, color_code)
+    "\e[#{color_code}m#{text}\e[0m"
+  end
+
+  def green
+    self.class.colorize(self, 32)
+  end
+end
+
 desc "Hook dotfiles into system-standard positions."
 task :install => [:submodules] do
 
@@ -131,5 +141,5 @@ def file_operation(files, method = :symlink)
 end
 
 def success_msg(action)
-  puts "Dotfiles #{action}. Restart terminal and vim."
+  puts "Dotfiles #{action}. Restart terminal and vim.".green
 end
