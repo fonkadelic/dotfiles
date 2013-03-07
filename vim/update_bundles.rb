@@ -16,6 +16,7 @@ git_bundles = %w{
   git://github.com/vim-scripts/SearchComplete.git
   git://github.com/tjennings/git-grep-vim.git
   git://github.com/airblade/vim-gitgutter.git
+  git://github.com/kien/ctrlp.vim.git
 }
 
 require 'fileutils'
