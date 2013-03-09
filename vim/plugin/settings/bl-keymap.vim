@@ -101,7 +101,7 @@ map g- :cpfile<CR> zz
 map g+ :cnfile<CR> zz
 
 " Show doc in Dash.app
-map <leader>d :call SearchDash()<CR>
+map <C-h> :call SearchDash()<CR>
 
 " MacVIM Config
 if has("gui_macvim")
