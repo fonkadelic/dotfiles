@@ -17,6 +17,7 @@ task :install => [:submodules] do
   
   file_operation(Dir.glob('git/*')) if want_to_install?('git')
   file_operation(Dir.glob('ruby/*')) if want_to_install?('ruby')
+  file_operation(Dir.glob('ack/*')) if want_to_install?('ack')
   file_operation(Dir.glob('{vim,vimrc}')) if want_to_install?('vim')
   
   Rake::Task["prezto"].invoke
