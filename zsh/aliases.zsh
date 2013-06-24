@@ -46,6 +46,9 @@ alias sgi='sudo gem install --no-ri --no-rdoc'
 # Custom rsync
 alias blsync='rsync --progress --partial --rsh="ssh"'
 
+# Open Xcode projects
+alias xc="bl_xc"
+
 # Jenkins CI
 alias jenkins="bl_jenkins"
 
