@@ -2,14 +2,6 @@
 " " This must be first, because it changes other options as a side effect.
 set nocompatible 
 
-" =============== Pathogen Initialization ===============
-" This loads all the plugins in ~/.vim/bundle
-" Use tpope's pathogen plugin to manage all other plugins
-
-runtime bundle/tpope-vim-pathogen/autoload/pathogen.vim
-call pathogen#infect()
-call pathogen#helptags()
-
 " ================ General Config ====================
 
 set number                          " Line numbers are good
@@ -87,37 +79,19 @@ set wildignore+=log/**
 set wildignore+=tmp/**
 set wildignore+=*.png,*.jpg,*.gif
 
-
 " ================ Key Mappings =====================
 
 " use comma as <Leader> key instead of backslash
 let mapleader=","
 
-" easier navigation between split windows
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-h> <c-w>h
-nnoremap <c-l> <c-w>l
-
-" Reselect visual block after adjusting indentation
-vnoremap < <gv
-vnoremap > >gv
-
-" Toggle between absolute and relative line numbers
-nnoremap <leader>l :NumbersToggle<CR>
-
-" switch between the currently open buffer and the previous one 
-nnoremap <leader><leader> <c-^>
-
-" Yank text to the OS X clipboard
-noremap <leader>y "*y
-noremap <leader>yy "*Y
-
-" Preserve indentation while pasting text from the OS X clipboard
-noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
-
+" =============== Vundle Initialization ===============
+" This loads all the plugins specified in ~/.vim/vundle.vim
+" Use Vundle plugin to manage all other plugins
+if filereadable(expand("~/.vim/vundles.vim"))
+  source ~/.vim/vundles.vim
+endif
 
 " Include some settings (cleaner .vimrc)
 for f in split(glob('~/.vim/plugin/settings/*.vim'), '\n')
-  exe 'source' f
+   exe 'source' f
 endfor

@@ -1,5 +1,27 @@
-" Arpeggio lets us define key-chord combos (simultaneous key presses)
-call arpeggio#load()
+" ================ Key Mappings =====================
+
+" easier navigation between split windows
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+
+" Reselect visual block after adjusting indentation
+vnoremap < <gv
+vnoremap > >gv
+
+" Toggle between absolute and relative line numbers
+nnoremap <leader>l :NumbersToggle<CR>
+
+" switch between the currently open buffer and the previous one 
+nnoremap <leader><leader> <c-^>
+
+" Yank text to the OS X clipboard
+noremap <leader>y "*y
+noremap <leader>yy "*Y
+
+" Preserve indentation while pasting text from the OS X clipboard
+noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
 
 "Go to last edit location with ,.
 nnoremap ,. '.
@@ -123,3 +145,4 @@ if has("gui_macvim")
   " map <D-/> ,c<Space>
 
 end
+

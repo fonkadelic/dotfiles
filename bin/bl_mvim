@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
 
-#  props to http://tammersaleh.com/posts/useful-macvim-script
-
 if [ $# == 0 ]; then
-  mvim
+  mvim --servername "$(basename $(pwd))" 1>/dev/null 2>&1
 else
-  mvim --servername $(basename $(pwd)) \
-       --remote-tab-silent "$@" 1>/dev/null 2>&1
+  mvim --servername "$(basename $(pwd))" --remote-tab-silent +"cd $(pwd)" "$@" 1>/dev/null 2>&1
 fi
+

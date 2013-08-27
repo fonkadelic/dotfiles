@@ -1,13 +1,15 @@
 " Make it beautiful - colors and fonts
 
-if &t_Co == 256 || has("gui_running")
+" set colorscheme
+colorscheme solarized
+set background=dark
 
-  " set colorscheme
-  colorscheme solarized
-  set background=dark
+if has("gui_running")
+  "tell the term has 256 colors
+  set t_Co=256
 
   " set font
-  set guifont=Menlo:h14,Monaco:h14
+  set guifont=Sauce\ Code\ Powerline:h14,Monaco:h14
   set antialias
 
   " Show tab number (useful for Cmd-1, Cmd-2.. mapping)
@@ -16,3 +18,4 @@ if &t_Co == 256 || has("gui_running")
   autocmd VimEnter * set guitablabel=%N:\ %t\ %M
 
 endif
+

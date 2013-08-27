@@ -1,4 +1,6 @@
 require 'rake'
+require 'fileutils'
+require File.join(File.dirname(__FILE__), 'bin', 'yadr', 'vundle')
 
 class String
   def self.colorize(text, color_code)
@@ -19,17 +21,13 @@ task :install => [:submodules] do
   file_operation(Dir.glob('ruby/*')) if want_to_install?('ruby')
   file_operation(Dir.glob('ack/*')) if want_to_install?('ack')
   file_operation(Dir.glob('{vim,vimrc}')) if want_to_install?('vim')
+  if want_to_install?('vim')
+    file_operation(Dir.glob('{vim,vimrc}'))
+  end
   
   Rake::Task["prezto"].invoke
 
   success_msg("installed")
-end
-
-task :omz do
-  if File.exist?("#{ENV['HOME']}/.oh-my-zsh")
-    run %{ ln -nfs #{ENV["PWD"]}/oh-my-zsh/plugins $HOME/.oh-my-zsh/custom/ } if want_to_install?('zsh plugins')
-    run %{ ln -nfs #{ENV["PWD"]}/oh-my-zsh/themes/* $HOME/.oh-my-zsh/custom/ } if want_to_install?('zsh themes')
-  end
 end
 
 desc "Install homebrew & some packages"
@@ -47,6 +45,21 @@ end
 desc "Init and update submodules."
 task :submodules do
   sh('git submodule update --init --recursive')
+end
+
+desc "Runs Vundle installer in a clean vim environment"
+task :install_vundle do
+  puts "======================================================"
+  puts "Installing vundle."
+  puts "======================================================"
+  puts ""
+  
+  run %{
+    cd $HOME/.dotfiles
+    git clone https://github.com/gmarik/vundle.git #{File.join('vim','bundle', 'vundle')}
+  }
+
+  Vundle::update_vundle
 end
 
 task :default => :install
