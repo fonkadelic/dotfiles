@@ -1,2 +1,12 @@
 .netrwhist
 vim/.vundles.local
+vim/bundle
+vim/sessions
+vim/tmp
+vim/spell
+vim/backups
+vim/view
+vim/.netrwhist
+bin/subl
+tags
+
