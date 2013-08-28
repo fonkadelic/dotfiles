@@ -1,5 +1,5 @@
 CURRENT_BG='NONE'
-SEGMENT_SEPARATOR='⮀'
+SEGMENT_SEPARATOR=''
 
 # Begin a segment
 # Takes two arguments, background and foreground. Both can be omitted,
@@ -91,7 +91,7 @@ function prompt_fonkadelic_setup {
   zstyle ':prezto:module:git:info:added' format ' ✚'
   zstyle ':prezto:module:git:info:ahead' format ' ⬆'
   zstyle ':prezto:module:git:info:behind' format ' ⬇'
-  zstyle ':prezto:module:git:info:branch' format '⭠ %b'
+  zstyle ':prezto:module:git:info:branch' format ' %b'
   zstyle ':prezto:module:git:info:clean' format '%C'
   zstyle ':prezto:module:git:info:commit' format ' ➦ %.7c'
   zstyle ':prezto:module:git:info:deleted' format ' ✖'
@@ -108,7 +108,7 @@ function prompt_fonkadelic_setup {
 
   # Define prompts.
   PROMPT='
-%{%f%b%k%}$(build_prompt) 
+%{%f%b%k%}$(build_prompt)
 ${editor_info[keymap]} '
   SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
 }
