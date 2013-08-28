@@ -114,3 +114,4 @@ ${editor_info[keymap]} '
 }
 
 prompt_fonkadelic_setup "$@"
+

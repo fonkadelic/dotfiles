@@ -90,8 +90,3 @@ let mapleader=","
 if filereadable(expand("~/.vim/vundles.vim"))
   source ~/.vim/vundles.vim
 endif
-
-" Include some settings (cleaner .vimrc)
-for f in split(glob('~/.vim/plugin/settings/*.vim'), '\n')
-   exe 'source' f
-endfor
