@@ -16,15 +16,14 @@ desc "Hook dotfiles into system-standard positions."
 task :install => [:submodules] do
 
   Rake::Task['brew'].invoke
-  
+
   file_operation(Dir.glob('git/*')) if want_to_install?('git')
   file_operation(Dir.glob('ruby/*')) if want_to_install?('ruby')
   file_operation(Dir.glob('ack/*')) if want_to_install?('ack')
-  file_operation(Dir.glob('{vim,vimrc}')) if want_to_install?('vim')
   if want_to_install?('vim')
-    file_operation(Dir.glob('{vim,vimrc}'))
+    file_operation(Dir.glob('{vim,vimrc,xvimrc}'))
   end
-  
+
   Rake::Task["prezto"].invoke
 
   success_msg("installed")
@@ -53,7 +52,7 @@ task :install_vundle do
   puts "Installing vundle."
   puts "======================================================"
   puts ""
-  
+
   run %{
     cd $HOME/.dotfiles
     git clone https://github.com/gmarik/vundle.git #{File.join('vim','bundle', 'vundle')}
