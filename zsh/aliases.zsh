@@ -7,6 +7,7 @@ alias du='du -h -d 2'
 
 # show me files matching "ls grep"
 alias llg='ll | grep'
+alias lla='ll | ack'
 
 # PS
 alias psa="ps aux"
