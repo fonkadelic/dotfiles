@@ -20,6 +20,7 @@ task :install => [:submodules] do
   file_operation(Dir.glob('git/*')) if want_to_install?('git')
   file_operation(Dir.glob('ruby/*')) if want_to_install?('ruby')
   file_operation(Dir.glob('ack/*')) if want_to_install?('ack')
+  file_operation(Dir.glob('lldb/*')) if want_to_install?('lldb')
   if want_to_install?('vim')
     file_operation(Dir.glob('{vim,vimrc,xvimrc}'))
   end
@@ -103,11 +104,6 @@ def install_prezto
   run %{ ln -nfs "$HOME/.dotfiles/zsh/prezto-override/zpreztorc" "${ZDOTDIR:-$HOME}/.zpreztorc" }
 
   puts
-#  puts "Creating directories for your customizations"
-#  run %{ mkdir -p $HOME/.zsh.before }
-#  run %{ mkdir -p $HOME/.zsh.after }
-#  run %{ mkdir -p $HOME/.zsh.prompts }
-
   puts "Setting zsh as your default shell"
   run %{ chsh -s /bin/zsh }
 end
@@ -156,3 +152,4 @@ end
 def success_msg(action)
   puts "Dotfiles #{action}. Restart terminal and vim.".green
 end
+
