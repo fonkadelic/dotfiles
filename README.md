@@ -1,6 +1,5 @@
-Personal Dotfiles
+~dotfiles
 =================
 
-Heavily inspired from [YADR](https://github.com/skwp/dotfiles "YADR").
+Heavily inspired by [YADR](https://github.com/skwp/dotfiles "YADR").
 
-**…**
