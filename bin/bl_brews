@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+# Credits: https://github.com/mathiasbynens/dotfiles/blob/master/.brew
+
+# Make sure we’re using the latest Homebrew
+brew update
+
+# Upgrade any already-installed formulae
+brew upgrade
+
+brew install ack
+brew install ctags
+brew install git
+brew install hub
+brew install rbenv
+brew install ruby-build
+brew install fasd
+brew install ssh-copy-id
+brew install tree
+brew install macvim --override-system-vim
+
+# Install native apps
+brew tap phinze/homebrew-cask
+brew install brew-cask
+
+# Add custom tap repo and install formulae
+brew tap fonkadelic/homebrew-additions
+brew install class-dump-z
+
+function installcask() {
+	brew cask install "${@}" 2> /dev/null
+}
+
+# Remove outdated versions from the cellar
+brew cleanup
+
