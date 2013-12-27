@@ -29,6 +29,8 @@
   dc = diff --cached                # diff staged changes
   last = diff HEAD^                 # diff last committed change
   kd = difftool
+  kdc = difftool --cached
+  kdl = difftool HEAD^
 
   ks = "!sh -c 'SHA=${1:-HEAD}; git difftool -y -t Kaleidoscope $SHA^..$SHA;' -"
 [format]
