@@ -19,8 +19,14 @@ alias psg="ps aux | grep "
 # MacVim
 alias v="bl_mvim"
 
+# Sublime
+alias sl="subl"
+
 # set my osx defaults
 alias osx="bl_osx"
+
+# SourceTree
+alias st="stree"
 
 # edit vim keymapping
 alias vikey="vim $dotfiles/zsh/aliases.zsh"
@@ -38,7 +44,7 @@ alias globalip="dig +short myip.opendns.com @resolver1.opendns.com"
 # Copy pub keys to clipboard
 alias pubkey="cat $HOME/.ssh/*.pub | pbcopy && echo 'Keys copied to clipboard'"
 
-# Cuttiing edge CocoaPods 
+# Cuttiing edge CocoaPods
 alias pod-dev='$HOME/Dev/Ruby/CocoaPods/bin/pod'
 
 # Gem install
