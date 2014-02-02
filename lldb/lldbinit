@@ -6,3 +6,7 @@ command alias reveal_load_dev expr (void*)dlopen([(NSString*)[(NSBundle*)[NSBund
 command alias reveal_start expr [(NSNotificationCenter*)[NSNotificationCenter defaultCenter] postNotificationName:@"IBARevealRequestStart" object:nil];
 command alias reveal_stop expr [(NSNotificationCenter*)[NSNotificationCenter defaultCenter] postNotificationName:@"IBARevealRequestStop" object:nil];
 
+command alias e expr
+
+command regex rd 's/^[[:space:]]*$/po [[[UIApplication sharedApplication] keyWindow] recursiveDescription]/' 's/^(.+)$/po [%1 recursiveDescription]/'
+command regex at 's/^[[:space:]]*$/po [[[UIApplication sharedApplication] keyWindow] _autolayoutTrace]/' 's/^(.+)$/po [%1 _autolayoutTrace]/'
