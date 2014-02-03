@@ -13,10 +13,7 @@ class String
 end
 
 desc "Hook dotfiles into system-standard positions."
-task :install => [:submodules] do
-
-  Rake::Task['brew'].invoke
-
+task :install => [:submodules, :brew] do
   file_operation(Dir.glob('git/*')) if want_to_install?('git')
   file_operation(Dir.glob('ruby/*')) if want_to_install?('ruby')
   file_operation(Dir.glob('ack/*')) if want_to_install?('ack')
@@ -25,7 +22,7 @@ task :install => [:submodules] do
     file_operation(Dir.glob('{vim,vimrc,xvimrc}'))
   end
 
-  Rake::Task["prezto"].invoke
+  task(:prezto).invoke
 
   success_msg("installed")
 end
@@ -48,7 +45,7 @@ task :submodules do
 end
 
 desc "Runs Vundle installer in a clean vim environment"
-task :install_vundle do
+task :vundle do
   puts "======================================================"
   puts "Installing vundle."
   puts "======================================================"
@@ -72,17 +69,20 @@ def run(cmd)
 end
 
 def install_homebrew
-  puts "======================================================"
-  puts "Installing Homebrew, the OSX package manager...If it's"
-  puts "already installed, this will do nothing."
-  puts "======================================================"
-  run %{ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"}
-  puts
+  run %{which brew}
+  unless $?.success?
+    puts "======================================================"
+    puts "Installing Homebrew, the OSX package manager...If it's"
+    puts "already installed, this will do nothing."
+    puts "======================================================"
+    run %{ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"}
+  end
   puts
   puts "======================================================"
   puts "Installing Homebrew packages...There may be some warnings."
   puts "======================================================"
-  run %{brew install ack ctags git hub rbenv ruby-build fasd ssh-copy-id tree macvim --override-system-vim}
+  run %{ brew bundle $HOME/.dotfiles/Brewfile }
+  run %{ brew bundle $HOME/.dotfiles/Caskfile }
   puts
   puts
 end
@@ -111,7 +111,8 @@ end
 def want_to_install?(section)
   if ENV["ask"]=="true"
     puts "Would you like to install configuration files for: #{section}? [y]es, [n]o"
-    STDIN.gets.chomp == 'y'
+    should_install = STDIN.gets.strip
+    should_install.downcase == 'y'
   else
     true
   end
@@ -152,4 +153,3 @@ end
 def success_msg(action)
   puts "Dotfiles #{action}. Restart terminal and vim.".green
 end
-

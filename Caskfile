@@ -1,0 +1,18 @@
+# This is a Brewfile for phinze/homebrew-cask
+# Run `brew bundle Caskfile`
+
+# Install cask
+install phinze/cask/brew-cask
+
+# Quick Look plugins
+cask install qlcolorcode
+cask install qlstephen
+cask install qlmarkdown
+cask install quicklook-json
+cask install quicklook-csv
+cask install betterzipql
+
+# Apps
+cask install iterm2
+cask install dropbox
+cask install google-chrome
