@@ -22,5 +22,7 @@ install tree
 # Add custom tap repo and install formulae
 tap fonkadelic/homebrew-additions
 install class-dump-z
+tap thoughtbot/formulae
+install gitsh
 
 cleanup
