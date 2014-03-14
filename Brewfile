@@ -24,5 +24,6 @@ tap fonkadelic/homebrew-additions
 install class-dump-z
 tap thoughtbot/formulae
 install gitsh
+install liftoff
 
 cleanup
