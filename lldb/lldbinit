@@ -1,4 +1,4 @@
-command script import ~/.dotfiles/lldb/scripts/chisel/fblldb.py
+command script import /usr/local/Cellar/chisel/1.0.0/libexec/fblldb.py
 command script import ~/.dotfiles/lldb/scripts/reveal.py
 command script import ~/.dotfiles/lldb/scripts/block.py
 

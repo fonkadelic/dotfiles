@@ -18,6 +18,7 @@ install macvim --override-system-vim
 install pow
 install wget
 install tree
+install chisel
 
 # Add custom tap repo and install formulae
 tap fonkadelic/homebrew-additions
