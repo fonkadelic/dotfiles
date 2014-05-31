@@ -1,10 +1,21 @@
 #! /usr/bin/env ruby
+Dir[File.join(File.dirname(__FILE__),"yadr/lib/**/lib")].each {|dir| $LOAD_PATH << dir}
+require 'trollop'
 
 # Credits: https://github.com/soffes/bin/blob/master/x
 
+$opts = Trollop::options do
+  opt :appcode, "Open with AppCode"
+end
+
 def open_cmd(pattern)
   files = Dir.glob(pattern)
-  `open "#{files.first}"` and exit if files.count == 1
+  cmd = "open #{files.first}"
+  if $opts[:appcode]
+    cmd = "#{cmd} -a /Applications/AppCode.app"
+  end
+
+  `#{cmd}` and exit if files.count == 1
 end
 
 open_cmd '*.xcworkspace'
