@@ -61,3 +61,6 @@ alias jenkins="bl_jenkins"
 
 # GitHub
 alias github-browse="git-hub-browse"
+
+# Swift
+alias swift="/Applications/Xcode6-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift"
