@@ -15,7 +15,7 @@ end
 desc "Hook dotfiles into system-standard positions."
 task :install => [:submodules, :brew] do
   file_operation(Dir.glob('git/*')) if want_to_install?('git')
-  file_operation(Dir.glob('ruby/*')) if want_to_install?('ruby')
+  file_operation(Dir.glob('{ruby/gemrc}')) if want_to_install?('ruby')
   file_operation(Dir.glob('ack/*')) if want_to_install?('ack')
   file_operation(Dir.glob('lldb/*')) if want_to_install?('lldb')
   if want_to_install?('vim')
@@ -59,9 +59,17 @@ task :vundle do
   Vundle::update_vundle
 end
 
+desc "Setup rbenv plugins"
+task :rbenv do
+  if File.exists?(File.join(Dir.home, ".rbenv"))
+    run %{ ln -nfs "$PWD/ruby/rbenv/plugins" "$HOME/.rbenv/" }
+  end
+end
+
 task :default => :install
 
 private
+
 def run(cmd)
   puts
   puts "[Installing] #{cmd}"
@@ -79,8 +87,9 @@ def install_homebrew
   end
   puts
   puts "======================================================"
-  puts "Installing Homebrew packages...There may be some warnings."
+  puts "Installing Homebrew packages..."
   puts "======================================================"
+  # TODO: Show output
   run %{ brew bundle $HOME/.dotfiles/Brewfile }
   run %{ brew bundle $HOME/.dotfiles/Caskfile }
   puts
