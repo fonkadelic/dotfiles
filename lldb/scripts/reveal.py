@@ -20,9 +20,8 @@ import lldb
 
 
 def auto_load_reveal(debugger, command, result, dict):
-    lldb.debugger.HandleCommand('call (void*)dlopen("/Applications/Reveal.app/Contents/SharedSupport/iOS-Libraries/libReveal.dylib", 0x2)')
+    lldb.debugger.HandleCommand('call (void*)dlopen("/opt/homebrew-cask/Caskroom/reveal/latest/Reveal.app/Contents/SharedSupport/iOS-Libraries/libReveal.dylib", 0x2)')
 
 
 def __lldb_init_module(debugger, internal_dict):
   debugger.HandleCommand('command script add -f reveal.auto_load_reveal reveal')
-
