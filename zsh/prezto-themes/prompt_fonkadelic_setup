@@ -86,7 +86,7 @@ function prompt_fonkadelic_setup {
   zstyle ':prezto:module:editor:info:completing' format '%B%F{red}...%f%b'
   zstyle ':prezto:module:editor:info:keymap:primary' format '%B%F{green}❯❯%f%b'
   zstyle ':prezto:module:editor:info:keymap:primary:overwrite' format '%F{red}♺%f'
-  zstyle ':prezto:module:editor:info:keymap:alternate' format '%B%F{red}❮❮%f%b'
+  zstyle ':prezto:module:editor:info:keymap:alternate' format '%B%F{red}❯❯%f%b'
   zstyle ':prezto:module:git:info:action' format '! %s'
   zstyle ':prezto:module:git:info:added' format ' ✚'
   zstyle ':prezto:module:git:info:ahead' format ' ⬆'
@@ -110,8 +110,8 @@ function prompt_fonkadelic_setup {
   PROMPT='
 %{%f%b%k%}$(build_prompt)
 ${editor_info[keymap]} '
+  RPROMPT='${__PROMPT_SKWP_COLORS[2]}[%D{%L:%M:%S %p}]'
   SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
 }
 
 prompt_fonkadelic_setup "$@"
-
