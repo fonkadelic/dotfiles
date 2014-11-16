@@ -29,8 +29,9 @@ Bundle "kien/ctrlp.vim"
 Bundle "tpope/vim-surround"
 Bundle "tjennings/git-grep-vim"
 Bundle "Raimondi/delimitMate"
-Bundle "bling/vim-airline"
+Bundle "itchyny/lightline.vim"
+Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
+Bundle "itspriddle/vim-marked"
 
 "Filetype plugin indent on is required by vundle
 filetype plugin indent on
-

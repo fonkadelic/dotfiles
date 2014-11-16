@@ -1,7 +1,6 @@
 " Make it beautiful - colors and fonts
 
-" set colorscheme
-colorscheme solarized
+colorscheme Tomorrow-Night-Eighties
 set background=dark
 
 if has("gui_running")
@@ -9,7 +8,7 @@ if has("gui_running")
   set t_Co=256
 
   " set font
-  set guifont=Sauce\ Code\ Powerline:h14,Monaco:h14
+  set guifont=Source\ Code\ Pro:h15,Menlo:h15
   set antialias
 
   " Show tab number (useful for Cmd-1, Cmd-2.. mapping)
@@ -18,4 +17,3 @@ if has("gui_running")
   autocmd VimEnter * set guitablabel=%N:\ %t\ %M
 
 endif
-

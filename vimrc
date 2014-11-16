@@ -1,6 +1,6 @@
 " Use Vim settings, rather then Vi settings (much better!).
 " " This must be first, because it changes other options as a side effect.
-set nocompatible 
+set nocompatible
 
 " ================ General Config ====================
 
@@ -88,3 +88,6 @@ set wildignore+=*.gem
 set wildignore+=log/**
 set wildignore+=tmp/**
 set wildignore+=*.png,*.jpg,*.gif
+
+" ================ Custom Settings ========================
+so ~/.dotfiles/vim/settings.vim
