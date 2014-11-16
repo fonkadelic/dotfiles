@@ -19,6 +19,9 @@ alias psg="ps aux | grep "
 # MacVim
 alias v="bl_mvim"
 
+# VimR
+alias vimr='open -a "VimR"'
+
 # Sublime
 alias sl="subl"
 
