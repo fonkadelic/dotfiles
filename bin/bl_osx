@@ -163,6 +163,9 @@ hash tmutil &> /dev/null && sudo tmutil disablelocal
 # QuickLook: Enable Text-Selection
 defaults write com.apple.finder QLEnableTextSelection -bool true
 
+# Set default text editor to Chocolat.app
+# defaults write com.apple.LaunchServices LSHandlers -array-add '{LSHandlerContentType=public.plain-text;LSHandlerRoleAll=com.chocolatapp.Chocolat;}'                                                                                               
+
 # Remove Dropbox’s green checkmark icons in Finder.app
 #file=/Applications/Dropbox.app/Contents/Resources/check.icns
 #[ -e "$file" ] && mv -f "$file" "$file.bak"
@@ -179,8 +182,10 @@ defaults write com.panic.transmit ShowiDiskInFavorites -bool NO
 # defaults write com.pilotmoon.popclip LoadUnsignedExtensions -bool YES
 
 # Sublime Text: Enable key repeat in for Sublime Text 2 in Vim mode
-defaults write com.sublimetext.2 ApplePressAndHoldEnabled -bool false
+# defaults write com.sublimetext.2 ApplePressAndHoldEnabled -bool false
 
+# Enable repeating keys in Mac OS X on press and hold
+defaults write -g ApplePressAndHoldEnabled 0
 
 # Kill affected applications
 for app in Safari Finder Dock Mail SystemUIServer PopClip; do killall "$app" >/dev/null 2>&1; done
