@@ -25,11 +25,14 @@ alias vimr='open -a "VimR"'
 # Sublime
 alias sl="subl"
 
-# set my osx defaults
-alias osx="bl_osx"
-
 # SourceTree
 alias st="stree"
+
+# Homebrew Cask
+alias cask="brew cask"
+
+# set my osx defaults
+alias osx="bl_osx"
 
 # edit vim keymapping
 alias vikey="vim $dotfiles/zsh/aliases.zsh"
