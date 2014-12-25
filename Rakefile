@@ -16,7 +16,7 @@ desc "Hook dotfiles into system-standard positions."
 task :install => [:submodules, :brew] do
   file_operation(Dir.glob('git/*')) if want_to_install?('git')
   file_operation(Dir.glob('{ruby/gemrc}')) if want_to_install?('ruby')
-  file_operation(Dir.glob('ack/*')) if want_to_install?('ack')
+  file_operation(Dir.glob('ag/*')) if want_to_install?('ag')
   file_operation(Dir.glob('lldb/*')) if want_to_install?('lldb')
   if want_to_install?('vim')
     file_operation(Dir.glob('{vim,vimrc,xvimrc}'))
