@@ -7,7 +7,7 @@ alias du='du -h -d 2'
 
 # show me files matching "ls grep"
 alias llg='ll | grep'
-alias lla='ll | ack'
+alias lla='ll | ag'
 
 # PS
 alias psa="ps aux"
@@ -16,17 +16,23 @@ alias psg="ps aux | grep "
 # Hub (http://defunkt.io/hub/)
 #alias git="hub"
 
+# Chocolat
+alias agc="peco-ag-choc"
+
 # MacVim
 alias v="bl_mvim"
 
 # VimR
 alias vimr='open -a "VimR"'
 
-# Sublime
-alias sl="subl"
+# Tmux
+alias tat="bl_tat"
 
 # SourceTree
 alias st="stree"
+
+# GitUp
+alias gu="open -a GitUp `git rev-parse --show-toplevel`"
 
 # Homebrew Cask
 alias cask="brew cask"
