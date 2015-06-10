@@ -1,10 +1,30 @@
 " ================ Key Mappings =====================
 
 " easier navigation between split windows
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-h> <c-w>h
-nnoremap <c-l> <c-w>l
+if exists('$TMUX')
+  function! TmuxOrSplitSwitch(wincmd, tmuxdir)
+    let previous_winnr = winnr()
+    silent! execute "wincmd " . a:wincmd
+    if previous_winnr == winnr()
+      call system("tmux select-pane -" . a:tmuxdir)
+      redraw!
+    endif
+  endfunction
+
+  let previous_title = substitute(system("tmux display-message -p '#{pane_title}'"), '\n', '', '')
+  let &t_ti = "\<Esc>]2;vim\<Esc>\\" . &t_ti
+  let &t_te = "\<Esc>]2;". previous_title . "\<Esc>\\" . &t_te
+
+  nnoremap <silent> <C-h> :call TmuxOrSplitSwitch('h', 'L')<cr>
+  nnoremap <silent> <C-j> :call TmuxOrSplitSwitch('j', 'D')<cr>
+  nnoremap <silent> <C-k> :call TmuxOrSplitSwitch('k', 'U')<cr>
+  nnoremap <silent> <C-l> :call TmuxOrSplitSwitch('l', 'R')<cr>
+else
+  map <C-h> <C-w>h
+  map <C-j> <C-w>j
+  map <C-k> <C-w>k
+  map <C-l> <C-w>l
+endif
 
 " Reselect visual block after adjusting indentation
 vnoremap < <gv
@@ -99,32 +119,42 @@ vmap ,{ c{<C-R>"}<ESC>
 " put the cursor right after the quote
 imap <C-a> <esc>wa
 
-" move up/down quickly by using Cmd-j, Cmd-k
-" which will move us around by functions
-nnoremap <silent> <D-j> }
-nnoremap <silent> <D-k> {
-
-" ,q to toggle quickfix window (where you have stuff like GitGrep)
-" ,oq to open it back up (rare)
-nmap <silent> ,qc :cclose<CR>
-nmap <silent> ,qo :copen<CR>
-
-"GitGrep - open up a git grep line, with a quote started for the search
-nnoremap ,gg :GitGrep ""<left>
-"GitGrep Current Partial
-nnoremap ,gcp :GitGrepCurrentPartial<CR>
-"GitGrep Current File
-nnoremap ,gcf :call GitGrep(expand("%:t:r"))<CR>
-" Center line on previous/next fix.
-map - :cprev<CR> zz
-map + :cnext<CR> zz
 " Center line in previous/next file.
 map g- :cpfile<CR> zz
 map g+ :cnfile<CR> zz
 
+" Bind K to grep word under cursor
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+
+" Bind \ (backward slash) to grep shortcut
+command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+nnoremap \ :Ag<SPACE>
+
+" Toggle quickfix window (where you have stuff like Ag)
+function! s:QuickfixToggle()
+    for i in range(1, winnr('$'))
+        let bnum = winbufnr(i)
+        if getbufvar(bnum, '&buftype') == 'quickfix'
+            cclose
+            lclose
+            return
+        endif
+    endfor
+    copen
+endfunction
+command! ToggleQuickfix call <SID>QuickfixToggle()
+
+nnoremap <silent> <Leader>ql :ToggleQuickfix<CR>
+
+"Move back and forth through previous and next buffers
+"with ,z and ,x
+nnoremap <silent> ,z :bp<CR>
+nnoremap <silent> ,x :bn<CR>
+
 " Show doc in Dash.app
 nnoremap <leader>d :call SearchDash()<CR>
 
+" Preview in Marked.app
 nnoremap <leader>m :MarkedOpen<CR>
 
 " MacVIM Config
@@ -145,6 +175,5 @@ if has("gui_macvim")
 
   " more TextMate/Mac like command mappings
   " map <D-/> ,c<Space>
-
 end
 
