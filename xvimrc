@@ -1,0 +1,24 @@
+" Case-insensitive searching.
+set ignorecase
+
+" But case-sensitive if expression contains a capital letter.
+set smartcase
+
+" Sets show relative line number
+set relativenumber
+set number
+
+" use system pasteboard
+set pasteboard
+
+" Documentation
+nnoremap ,h :xccmd searchDocumentationForSelectedText<CR>
+
+" Jump to definition
+nnoremap ,d :xccmd jumpToDefinition<CR>
+
+" easier navigation between split windows
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l

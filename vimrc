@@ -16,7 +16,6 @@ set cursorline                      " Shows the horizontal cursor line
 set gcr=a:blinkon0                  " Disable cursor blink
 set visualbell                      " No sounds
 set noshowmode                      " Hide current mode (for powerline)
-
 set autoread                        "Reload files changed outside vim
 
 " This makes vim act like all other editors, buffers can
@@ -62,6 +61,11 @@ set incsearch                   " incremental searching
 set ignorecase                  " searches are case insensitive...
 set smartcase                   " ... unless they contain at least one capital letter
 
+" Use Ag over Grep
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor
+endif
+
 " ================ Turn Off Swap Files ==============
 
 set noswapfile
@@ -76,7 +80,17 @@ set sidescroll=1
 
 " ================ Completion =======================
 
-set wildmode=list:longest
+set wildmode=list:longest,list:full
+function! InsertTabWrapper()
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+    else
+        return "\<c-p>"
+    endif
+endfunction
+inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
+inoremap <S-Tab> <c-n>
 set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
 set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
 set wildignore+=*vim/backups*
