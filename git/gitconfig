@@ -41,14 +41,19 @@
 	whitespace = nowarn
 [branch]
   autosetupmerge = true
+[pull]
+  rebase = true
 [push]
-  # 'git push' will push the current branch to its tracking branch
-  # the usual default is to push all branches
-  default = tracking
+  default = simple
 [core]
 	autocrlf = false
   editor = vim
-	excludesfile = /Users/bloibl/.dotfiles/git/gitignore
+	excludesfile = ~/.dotfiles/git/gitignore
+  pager = less -F -X
+  # OSX only
+  fsyncobjectfiles = true
+[credential]
+    helper = osxkeychain
 [diff]
 	tool = Kaleidoscope
 [merge]
@@ -79,7 +84,7 @@
   keepBackup = false
 [difftool "sourcetree"]
 	cmd = /usr/local/bin/ksdiff -w \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /usr/local/bin/ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
 	trustExitCode = true
