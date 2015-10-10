@@ -32,7 +32,7 @@ alias tat="bl_tat"
 alias st="stree"
 
 # GitUp
-alias gu="open -a GitUp `git rev-parse --show-toplevel`"
+alias gu="gitup"
 
 # Homebrew Cask
 alias cask="brew cask"
