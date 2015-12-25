@@ -163,8 +163,8 @@ hash tmutil &> /dev/null && sudo tmutil disablelocal
 # QuickLook: Enable Text-Selection
 defaults write com.apple.finder QLEnableTextSelection -bool true
 
-# Set default text editor to Chocolat.app
-# defaults write com.apple.LaunchServices LSHandlers -array-add '{LSHandlerContentType=public.plain-text;LSHandlerRoleAll=com.chocolatapp.Chocolat;}'                                                                                               
+# Set default text editor to Sublime
+defaults write com.apple.LaunchServices LSHandlers -array-add '{LSHandlerContentType=public.plain-text;LSHandlerRoleAll=com.sublimetext.3;}'
 
 # Remove Dropbox’s green checkmark icons in Finder.app
 #file=/Applications/Dropbox.app/Contents/Resources/check.icns
@@ -181,11 +181,21 @@ defaults write com.panic.transmit ShowiDiskInFavorites -bool NO
 # PopClip: To turn off the unsigned extensions warning
 # defaults write com.pilotmoon.popclip LoadUnsignedExtensions -bool YES
 
-# Sublime Text: Enable key repeat in for Sublime Text 2 in Vim mode
-# defaults write com.sublimetext.2 ApplePressAndHoldEnabled -bool false
+# Sublime Text: Enable key repeat in for Sublime Text 3 in Vim mode
+defaults write com.sublimetext.3 ApplePressAndHoldEnabled -bool false
 
 # Enable repeating keys in Mac OS X on press and hold
 defaults write -g ApplePressAndHoldEnabled 0
+
+# Xcode
+#
+# Show build time
+defaults write com.apple.dt.Xcode ShowBuildOperationDuration YES
+# Better autocompletion with Fuzzy mode
+defaults write com.apple.dt.Xcode IDECodeCompletionFuzzyMode 3
+defaults write com.apple.dt.Xcode IDEWorkaroundForRadar6288283 3
+# Boost compile time
+defaults write com.apple.dt.Xcode IDEBuildOperationMaxNumberOfConcurrentCompileTasks `sysctl -n hw.ncpu`
 
 # Kill affected applications
 for app in Safari Finder Dock Mail SystemUIServer PopClip; do killall "$app" >/dev/null 2>&1; done
