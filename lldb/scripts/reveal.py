@@ -19,7 +19,7 @@ __license__ = 'MIT'
 import lldb
 
 def auto_load_reveal(debugger, command, result, dict):
-    lldb.debugger.HandleCommand('call (Class)NSClassFromString(@&quot;IBARevealLoader&quot;) == nil ? (void *)dlopen(&quot;/opt/homebrew-cask/Caskroom/reveal/latest/Reveal.app/Contents/SharedSupport/iOS-Libraries/libReveal.dylib&quot;, 0x2) : ((void*)0)')
+  lldb.debugger.HandleCommand('call (Class)NSClassFromString(@"IBARevealLoader") == nil ? (void *)dlopen("/opt/homebrew-cask/Caskroom/reveal/latest/Reveal.app/Contents/SharedSupport/iOS-Libraries/libReveal.dylib", 0x2) : ((void*)0)')
 
 def __lldb_init_module(debugger, internal_dict):
   debugger.HandleCommand('command script add -f reveal.auto_load_reveal reveal')
