@@ -34,9 +34,6 @@ alias st="stree"
 # GitUp
 alias gu="gitup"
 
-# Homebrew Cask
-alias cask="brew cask"
-
 # set my osx defaults
 alias osx="bl_osx"
 
