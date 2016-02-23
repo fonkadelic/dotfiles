@@ -33,7 +33,7 @@ vnoremap > >gv
 " Toggle between absolute and relative line numbers
 nnoremap <leader>l :NumbersToggle<CR>
 
-" switch between the currently open buffer and the previous one 
+" switch between the currently open buffer and the previous one
 nnoremap <leader><leader> <c-^>
 
 " Yank text to the OS X clipboard
@@ -72,15 +72,15 @@ nnoremap <D-Down> <C-w>-
 nnoremap <D-Left> <C-w><
 nnoremap <D-Right> <C-w>>
 
-"Clear current search highlight by double tapping //
-nmap <silent> // :nohlsearch<CR>
+" Remove search highlighting by pressing Enter.
+nnoremap <CR> :noh<CR><CR>
 
 " Command-/ to toggle comments
 map <D-/> :TComment<CR>
 imap <D-/> <Esc>:TComment<CR>i
 
 " nerd tree
-nmap ,n :NERDTreeTabsToggle<CR> 
+nmap ,n :NERDTreeTabsToggle<CR>
 nmap ,N :NERDTreeFind<CR>
 
 " ," Surround a word with "quotes"
@@ -159,7 +159,7 @@ nnoremap <leader>m :MarkedOpen<CR>
 
 " MacVIM Config
 if has("gui_macvim")
-  
+
   " bind command-] to shift right
   nmap <D-]> >>
   vmap <D-]> >>
@@ -169,6 +169,14 @@ if has("gui_macvim")
   nmap <D-[> <<
   vmap <D-[> <<
   imap <D-[> <C-O><<
+
+  " NERDTree
+  " nnoremap <D-S-J> :NERDTreeFind<CR>
+  "
+
+  " CtrP
+  " macmenu &File.New\ Tab key=<nop>
+  " let g:ctrlp_map = '<D-t>'
 
   " Make selection with the shift key work as in any Mac app
   " let macvim_skip_hig_shift_movement = 1
