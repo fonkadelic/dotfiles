@@ -1,6 +1,13 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-# Via https://raw.github.com/mathiasbynens/dotfiles/master/.osx
+# ~/.osx — https://mths.be/osx
+
+# Ask for the administrator password upfront
+sudo -v
+
+# Keep-alive: update existing `sudo` time stamp until `.osx` has finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
 
 # Enable full keyboard access for all controls (e.g. enable Tab in modal dialogs)
 #defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
@@ -34,10 +41,14 @@ defaults write NSGlobalDomain AppleFontSmoothing -int 2
 #defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
 # Expand save panel by default
-#defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
 
 # Expand print panel by default
 #defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+
+# Save to disk (not to iCloud) by default
+defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
 # Disable the “Are you sure you want to open this application?” dialog
 #defaults write com.apple.LaunchServices LSQuarantine -bool false
@@ -116,6 +127,10 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 # defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 2
 # defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
 
+# Use scroll gesture with the Ctrl (^) modifier key to zoom
+defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
+defaults write com.apple.universalaccess HIDScrollZoomModifierMask -int 262144
+
 # Disable Safari’s thumbnail cache for History and Top Sites
 #defaults write com.apple.Safari DebugSnapshotsUpdatePolicy -int 2
 
@@ -139,6 +154,9 @@ defaults write com.apple.iTunes NSUserKeyEquivalents -dict-add "Target Search Fi
 
 # Enable Mail.app plugins
 defaults write com.apple.mail EnableBundles -bool true
+
+# Copy email addresses as `foo@example.com` instead of `Foo Bar <foo@example.com>` in Mail.app
+defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
 
 # Disable send and reply animations in Mail.app
 #defaults write com.apple.Mail DisableReplyAnimations -bool true
@@ -187,18 +205,92 @@ defaults write com.panic.transmit ShowiDiskInFavorites -bool NO
 # Sublime Text: Enable key repeat in for Sublime Text 3 in Vim mode
 defaults write com.sublimetext.3 ApplePressAndHoldEnabled -bool false
 
-# Enable repeating keys in Mac OS X on press and hold
-defaults write -g ApplePressAndHoldEnabled 0
+# Disable press-and-hold for keys in favor of key repeat
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+
+# Set a blazingly fast keyboard repeat rate
+defaults write NSGlobalDomain KeyRepeat -int 2
+defaults write NSGlobalDomain InitialKeyRepeat -int 15
+
+# Photos: prevent from opening automatically when devices are plugged in
+defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
+
+# Tweetbot: Bypass the annoyingly slow t.co URL shortener
+defaults write com.tapbots.TweetbotMac OpenURLsDirectly -bool true
 
 # Xcode
 #
-# Show build time
-defaults write com.apple.dt.Xcode ShowBuildOperationDuration YES
-# Better autocompletion with Fuzzy mode
-defaults write com.apple.dt.Xcode IDECodeCompletionFuzzyMode 3
-defaults write com.apple.dt.Xcode IDEWorkaroundForRadar6288283 3
-# Boost compile time
-defaults write com.apple.dt.Xcode IDEBuildOperationMaxNumberOfConcurrentCompileTasks `sysctl -n hw.ncpu`
+# https://github.com/keith/dotfiles/blob/master/osx/defaults.sh
+#
+
+# Trim trailing whitespace
+defaults write com.apple.dt.Xcode DVTTextEditorTrimTrailingWhitespace -bool true
+
+# Trim whitespace only lines
+defaults write com.apple.dt.Xcode DVTTextEditorTrimWhitespaceOnlyLines -bool true
+
+# Don't show completion on escape
+defaults write com.apple.dt.Xcode DVTTextShowCompletionsOnEsc -bool false
+
+# Show line numbers
+defaults write com.apple.dt.Xcode DVTTextShowLineNumbers -bool true
+
+# Hide the code folding ribbon
+defaults write com.apple.dt.Xcode DVTTextShowFoldingSidebar -bool false
+
+# Enable automatic updates
+# defaults write com.apple.dt.Xcode DVTDownloadableAutomaticUpdate -bool true
+
+# Live issues
+defaults write com.apple.dt.Xcode IDEEnableLiveIssues -bool true
+
+# Continue building after errors
+defaults write com.apple.dt.Xcode IDEBuildingContinueBuildingAfterErrors -bool true
+
+# Setup page guide
+defaults write com.apple.dt.Xcode DVTTextShowPageGuide -bool true
+defaults write com.apple.dt.Xcode DVTTextPageGuideLocation -int 110
+
+# Max number of lines
+defaults write com.apple.dt.Xcode IDEIssueNavigatorDetailLevel -int 10
+defaults write com.apple.dt.Xcode IDESearchNavigatorDetailLevel -int 10
+
+# Enable internal debug menu
+defaults write com.apple.dt.Xcode ShowDVTDebugMenu -bool true
+
+# Source control local revision side
+defaults write com.apple.dt.Xcode DVTComparisonOrientationDefaultsKey -int 0
+
+# Stack assitant editors vertically
+defaults write com.apple.dt.Xcode AssistantEditorsLayout -int 1
+
+# Use open quickly to open in the focused pane
+defaults write com.apple.dt.Xcode IDEEditorCoordinatorTarget_Click -string FocusedEditor
+
+# Use custom derived data location
+# defaults write com.apple.dt.Xcode IDECustomDerivedDataLocation -string build
+
+# Disable source control
+defaults write com.apple.dt.Xcode IDESourceControlEnableSourceControl_7_1 -bool false
+
+# Show build times in toolbar
+# http://cocoa.tumblr.com/post/131023038113/build-speed
+defaults write com.apple.dt.Xcode ShowBuildOperationDuration -bool true
+
+# Add more information to Xcode's build output about why specific commands are being run
+# https://twitter.com/bdash/status/661742266487205888
+# http://www.openradar.me/27516128
+defaults write com.apple.dt.Xcode ExplainWhyBuildCommandsAreRun -bool true
+
+# Stop Xcode from reopening files (specifically storyboards) on launch.
+# I also have a `xcuser` shell command to wipe this state so you don't reopen
+# storyboards and dirty the diff, or just take 30 seconds to launch
+defaults write com.apple.dt.Xcode IDEDisableStateRestoration -bool true
+
+# Write detailed build system info into derived data
+# If you don't enable this but `mkdir /tmp/xcode_dependency_logs` the logs will
+# be created there instead
+defaults write com.apple.dt.Xcode EnableBuildSystemLogging -bool true
 
 # Kill affected applications
 for app in Safari Finder Dock Mail SystemUIServer PopClip; do killall "$app" >/dev/null 2>&1; done
