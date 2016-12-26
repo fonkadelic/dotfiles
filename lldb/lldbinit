@@ -4,10 +4,10 @@ command script import ~/.dotfiles/lldb/scripts/block.py
 command script import ~/.dotfiles/lldb/scripts/LBRShortcut.py
 command script import ~/.dotfiles/lldb/scripts/ignore_specified_objc_exceptions.py
 
-command alias reveal_load_sim expr (void*)dlopen("/Applications/Reveal.app/Contents/SharedSupport/iOS-Libraries/libReveal.dylib", 0x2);
-command alias reveal_load_dev expr (Class)NSClassFromString(@"IBARevealLoader") == nil ? (void*)dlopen((char*)[(NSString*)[(NSBundle*)[NSBundle mainBundle] pathForResource:@"libReveal" ofType:@"dylib"] cStringUsingEncoding:0x4], 0x2) : ((void*)0)
-command alias reveal_start expr [(NSNotificationCenter*)[NSNotificationCenter defaultCenter] postNotificationName:@"IBARevealRequestStart" object:nil];
-command alias reveal_stop expr [(NSNotificationCenter*)[NSNotificationCenter defaultCenter] postNotificationName:@"IBARevealRequestStop" object:nil];
+command alias load_reveal_sim expr (void*)dlopen("/Applications/Reveal.app/Contents/SharedSupport/iOS-Libraries/libReveal.dylib", 0x2);
+command alias load_reveal_dev expr (Class)NSClassFromString(@"IBARevealLoader") == nil ? (void*)dlopen((char*)[(NSString*)[(NSBundle*)[NSBundle mainBundle] pathForResource:@"libReveal" ofType:@"dylib"] cStringUsingEncoding:0x4], 0x2) : ((void*)0)
+command alias start_reveal expr [(NSNotificationCenter*)[NSNotificationCenter defaultCenter] postNotificationName:@"IBARevealRequestStart" object:nil];
+command alias stop_reveal expr [(NSNotificationCenter*)[NSNotificationCenter defaultCenter] postNotificationName:@"IBARevealRequestStop" object:nil];
 
 command alias e expr
 
