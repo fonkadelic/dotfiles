@@ -10,3 +10,4 @@ vim/.netrwhist
 bin/subl
 tags
 
+git/gitconfig.local.symlink

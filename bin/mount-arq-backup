@@ -1,0 +1,9 @@
+#!/bin/sh
+
+osascript <<EOD
+  tell application "Finder"
+    try
+      mount volume "afp://MyCloud.local/Arq"
+    end try
+  end tell
+EOD

@@ -285,12 +285,28 @@ defaults write com.apple.dt.Xcode ExplainWhyBuildCommandsAreRun -bool true
 # Stop Xcode from reopening files (specifically storyboards) on launch.
 # I also have a `xcuser` shell command to wipe this state so you don't reopen
 # storyboards and dirty the diff, or just take 30 seconds to launch
-defaults write com.apple.dt.Xcode IDEDisableStateRestoration -bool true
+defaults write com.apple.dt.Xcode IDEDisableStateRestoration -bool false
 
 # Write detailed build system info into derived data
 # If you don't enable this but `mkdir /tmp/xcode_dependency_logs` the logs will
 # be created there instead
 defaults write com.apple.dt.Xcode EnableBuildSystemLogging -bool true
+
+ # Enable fullscreen mode for iOS simulator
+ # https://mobile.twitter.com/i/web/status/944222757428105221
+defaults write com.apple.iphonesimulator AllowFullscreenMode -bool true
+
+# Multi Cursor
+# https://mjtsai.com/blog/2018/04/29/multiple-cursors-in-xcode/
+defaults write com.apple.dt.Xcode PegasusMultipleCursorsEnabled -bool true
+
+# Number of remaining processing files
+# https://twitter.com/dmartincy/status/1034930612543676418
+defaults write com.apple.dt.Xcode IDEIndexerActivityShowNumericProgress -bool true
+
+# Skip refactoring code folding animation
+# https://twitter.com/dmartincy/status/1173289543124029440
+defaults write com.apple.dt.Xcode CodeFoldingAnimationSpeed -int 0
 
 # Kill affected applications
 for app in Safari Finder Dock Mail SystemUIServer PopClip; do killall "$app" >/dev/null 2>&1; done

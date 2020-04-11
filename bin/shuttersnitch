@@ -1,0 +1,4 @@
+#!/bin/sh
+
+dbres=$(sqlite3 ~/Library/Application\ Support/Eyefi/Eyefi\ Mobi/offline.db 'SELECT o_mac_address, o_upload_key FROM o_devices') && keys=(${dbres//$'\n'/ }) && for keyandmac in "${keys[@]}"; do mobimac=${keyandmac:0:17}; mobikey=${keyandmac:18}; ssurl="shuttersnitch://?setKey=${mobikey}%26forMAC=${mobimac}"; echo $ssurl | pbcopy; done;
+

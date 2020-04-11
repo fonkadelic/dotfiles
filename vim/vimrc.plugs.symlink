@@ -1,0 +1,20 @@
+" ----------------------------------------------------------------------------
+"   Plug
+" ----------------------------------------------------------------------------
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'blueshirts/darcula'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'scrooloose/syntastic'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'keith/swift.vim'
+Plug 'keith/xcconfig.vim'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+
+" Initialize plugin system
+call plug#end()

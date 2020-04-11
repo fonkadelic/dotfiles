@@ -1,9 +1,12 @@
-[submodule "zsh/prezto"]
-	path = zsh/prezto
-	url = git://github.com/fonkadelic/prezto.git
 [submodule "iTerm2"]
 	path = iTerm2
 	url = git@github.com:mbadolato/iTerm2-Color-Schemes.git
 [submodule "ruby/rbenv/plugins/rbenv-default-gems"]
 	path = ruby/rbenv/plugins/rbenv-default-gems
 	url = git@github.com:sstephenson/rbenv-default-gems.git
+[submodule "zsh/zprezto.symlink"]
+	path = zsh/zprezto.symlink
+	url = https://github.com/fonkadelic/prezto
+[submodule "lldb/scripts/kastiglione"]
+	path = lldb/scripts/kastiglione
+	url = https://github.com/kastiglione/lldb-helpers

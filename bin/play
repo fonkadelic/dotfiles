@@ -1,0 +1,8 @@
+#!/bin/sh
+
+set -e
+
+FOLDER="$HOME/Developer/iOS/Playgrounds"
+FILE="$(date +%d-%m-%Y"_"%H:%M:%S)"
+
+playground -t "$FOLDER"

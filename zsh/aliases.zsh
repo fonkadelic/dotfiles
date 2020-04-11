@@ -1,5 +1,3 @@
-dotfiles=$HOME/.dotfiles
-
 # Show human friendly numbers and colors
 alias df='df -h'
 alias ll='ls -alGh'
@@ -13,17 +11,17 @@ alias lla='ll | ag'
 alias psa="ps aux"
 alias psg="ps aux | grep "
 
-# Hub (http://defunkt.io/hub/)
-#alias git="hub"
-
-# Chocolat
-alias agc="peco-ag-choc"
-
 # MacVim
 alias v="bl_mvim"
 
 # VimR
 alias vimr='open -a "VimR"'
+
+# Emacs
+alias em='open -a Emacs.app'
+
+# iA Writer
+alias ia='open $1 -a /Applications/iA\ Writer.app'
 
 # Tmux
 alias tat="bl_tat"
@@ -37,8 +35,12 @@ alias gu="gitup"
 # set my osx defaults
 alias osx="bl_osx"
 
+# quick opening files with editor
+# alias e="j -a -e $EDITOR"
+alias e='j -a -e "open -a Emacs.app"'
+
 # edit vim keymapping
-alias vikey="vim $dotfiles/zsh/aliases.zsh"
+alias vikey="vim $ZSH/zsh/aliases.zsh"
 
 # extract archives
 alias extract="bl_extract"
@@ -53,23 +55,28 @@ alias globalip="dig +short myip.opendns.com @resolver1.opendns.com"
 # Copy pub keys to clipboard
 alias pubkey="cat $HOME/.ssh/*.pub | pbcopy && echo 'Keys copied to clipboard'"
 
-# Cuttiing edge CocoaPods
-alias pod-dev='$HOME/Dev/Ruby/CocoaPods/bin/pod'
-
 # Gem install
 alias sgi='sudo gem install --no-ri --no-rdoc'
 
 # Custom rsync
 alias blsync='rsync --progress --partial --rsh="ssh"'
 
-# Open Xcode projects
-alias xc="bl_xc"
+# tmuxinator
+alias mux="tmuxinator"
 
-# Jenkins CI
-alias jenkins="bl_jenkins"
+# Ruby
+alias be='bundle exec'
+alias bp='bundle exec pod'
 
-# GitHub
-alias github-browse="git-hub-browse"
+# Gradle
+alias gw='./gradlew'
 
-# Swift
-alias swift="/Applications/Xcode6-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift"
+# Jenkins
+alias jenkins-ios-sh='ssh bernhard.loibl@jenkins-ios-master.kupferwerk.net -p 49178 -i .ssh/kupferwerk_rsa'
+
+# Xcode
+alias oxcdd='xcderiveddata | xargs -I{} open {}'
+
+# Chill
+alias chill="mpv -no-video 'https://www.youtube.com/watch?v=hHW1oY26kxQ'"
+

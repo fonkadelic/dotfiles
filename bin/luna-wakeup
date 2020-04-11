@@ -1,0 +1,3 @@
+#!/bin/sh
+
+ osascript -e 'tell application "Keyboard Maestro Engine" to do script "A145145E-BA51-433C-807A-2998AF7009E3" with parameter "Whatever"'
