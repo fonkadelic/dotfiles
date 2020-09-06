@@ -4,7 +4,7 @@ command script import ~/.dotfiles/lldb/scripts/LBRShortcut.py
 command script import ~/.dotfiles/lldb/scripts/ignore_specified_objc_exceptions.py
 command script import ~/.dotfiles/lldb/scripts/nudge.py
 command script import ~/.dotfiles/lldb/scripts/kastiglione/criteria.py
-command script import /Users/bloibl/Library/Application\ Support/Reveal/RevealServerCommands.py
+command script import ~/Library/Application\ Support/Reveal/RevealServerCommands.py
 
 command alias load_reveal_sim expr (void*)dlopen("/Applications/Reveal.app/Contents/SharedSupport/iOS-Libraries/libReveal.dylib", 0x2);
 command alias load_reveal_dev expr (Class)NSClassFromString(@"IBARevealLoader") == nil ? (void*)dlopen((char*)[(NSString*)[(NSBundle*)[NSBundle mainBundle] pathForResource:@"libReveal" ofType:@"dylib"] cStringUsingEncoding:0x4], 0x2) : ((void*)0)

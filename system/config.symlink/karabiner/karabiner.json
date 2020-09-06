@@ -1,7 +1,7 @@
 {
     "global": {
         "check_for_updates_on_startup": true,
-        "show_in_menu_bar": true,
+        "show_in_menu_bar": false,
         "show_profile_name_in_menu_bar": false
     },
     "profiles": [
@@ -15,6 +15,32 @@
                     "mouse_motion_to_scroll.speed": 100
                 },
                 "rules": [
+                    {
+                        "manipulators": [
+                            {
+                                "description": "Tab as fn",
+                                "from": {
+                                    "key_code": "tab",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "fn"
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "tab"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
                     {
                         "description": "Change Hyper + H/J/K/L to Arrow Keys, X to forward delete",
                         "manipulators": [
@@ -131,9 +157,9 @@
                         ]
                     },
                     {
+                        "description": "Change caps_lock key to command+control+option+shift. (Post escape key when pressed alone)",
                         "manipulators": [
                             {
-                                "description": "Change caps_lock to command+control+option+shift.",
                                 "from": {
                                     "key_code": "caps_lock",
                                     "modifiers": {
@@ -162,11 +188,11 @@
                         ]
                     },
                     {
+                        "description": "Disable caps_lock delay (rev 1)",
                         "manipulators": [
                             {
-                                "description": "Tab as fn",
                                 "from": {
-                                    "key_code": "tab",
+                                    "key_code": "caps_lock",
                                     "modifiers": {
                                         "optional": [
                                             "any"
@@ -175,12 +201,11 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "fn"
-                                    }
-                                ],
-                                "to_if_alone": [
+                                        "hold_down_milliseconds": 200,
+                                        "key_code": "caps_lock"
+                                    },
                                     {
-                                        "key_code": "tab"
+                                        "key_code": "vk_none"
                                     }
                                 ],
                                 "type": "basic"

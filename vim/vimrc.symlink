@@ -4,11 +4,6 @@ if &compatible
   set nocompatible
 endif
 
-" Plugin setup
-filetype off
-source ~/.vimrc.plugs
-
-filetype plugin indent on " Re-enable after setup
 syntax on " turn on syntax highlighting
 
 " I - Disable the startup message
@@ -44,23 +39,24 @@ set hidden
 let g:mapleader="\<Space>"
 
 set autoindent
-set smartindent
-set smarttab
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
-set expandtab
+set expandtab " insert spaces instead of tabs
+set tabstop=2 " display tabs as 2 columns
+set softtabstop=2 " insert 2 spaces when tab is pressed
+set shiftwidth=2 " indent by 2 columns
 
 set nowrap       " Don't wrap lines
 set linebreak    " Wrap lines at convenient points
+
+" Filetype detection
+filetype plugin on
 
 " On quit reset title
 let &titleold=getcwd()
 
 " Colors
-set background=dark
-silent! colorscheme darcula
-let g:airline_theme='molokai'
+set termguicolors
+colo vim-monokai-tasty
+let g:lightline = {'colorscheme' : 'monokai_tasty'}
 
 set hlsearch                    " highlight matches
 set incsearch                   " incremental searching

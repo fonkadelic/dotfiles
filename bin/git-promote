@@ -1,4 +1,5 @@
-#!/bin/sh
+#!/usr/bin/env fish
+
 #
 # Promotes a local topic branch to a remote tracking branch of the same name,
 # by pushing and then setting up the git config
@@ -6,13 +7,20 @@
 # Thanks to ENTP:
 # http://hoth.entp.com/2008/11/10/improving-my-git-workflow
 
-curr_branch=$(git symbolic-ref -q HEAD | sed -e 's|^refs/heads/||')
+set current_branch (git symbolic-ref -q HEAD | sed -e 's|^refs/heads/||')
 
-remote_branch=$(git branch -r | grep "origin/${curr_branch}")
-[ -z "${remote_branch}" ] && ( git push origin "${curr_branch}" )
+set remote_branch (git branch -r | grep "origin/$current_branch")
+if test -z "$remote_branch"
+  git push origin "$current_branch"
+end
 
-origin=$(git config --get "branch.${curr_branch}.remote")
-[ -z "${origin}" ] && ( git config --add "branch.${curr_branch}.remote" origin )
+set origin (git config --get "branch.$current_branch.remote")
+if test -z "$origin"
+  git config --add "branch.$current_branch.remote" origin
+end
 
-merge=$(git config --get "branch.${curr_branch}.merge")
-[ -z "${merge}" ] && ( git config --add "branch.${curr_branch}.merge" "refs/heads/${curr_branch}" )
+set merge (git config --get "branch.$current_branch.merge")
+if test -z "$merge"
+  git config --add "branch.$current_branch.merge" "refs/heads/$current_branch" 
+end
+

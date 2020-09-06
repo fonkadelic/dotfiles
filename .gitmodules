@@ -1,12 +1,24 @@
-[submodule "iTerm2"]
-	path = iTerm2
-	url = git@github.com:mbadolato/iTerm2-Color-Schemes.git
 [submodule "ruby/rbenv/plugins/rbenv-default-gems"]
 	path = ruby/rbenv/plugins/rbenv-default-gems
 	url = git@github.com:sstephenson/rbenv-default-gems.git
-[submodule "zsh/zprezto.symlink"]
-	path = zsh/zprezto.symlink
-	url = https://github.com/fonkadelic/prezto
 [submodule "lldb/scripts/kastiglione"]
 	path = lldb/scripts/kastiglione
 	url = https://github.com/kastiglione/lldb-helpers
+[submodule "vim/vim.symlink/pack/swift/start/swift.vim"]
+	path = vim/vim.symlink/pack/swift/start/swift.vim
+	url = https://github.com/keith/swift.vim
+[submodule "vim/vim.symlink/pack/ui/start/syntastic"]
+	path = vim/vim.symlink/pack/ui/start/syntastic
+	url = https://github.com/vim-syntastic/syntastic
+[submodule "vim/vim.symlink/pack/ui/start/fzf"]
+	path = vim/vim.symlink/pack/ui/start/fzf
+	url = https://github.com/junegunn/fzf
+[submodule "vim/vim.symlink/pack/ui/start/lightline"]
+	path = vim/vim.symlink/pack/ui/start/lightline
+	url = https://github.com/itchyny/lightline.vim
+[submodule "vim/vim.symlink/pack/ui/start/vim-fish"]
+	path = vim/vim.symlink/pack/ui/start/vim-fish
+	url = https://github.com/blankname/vim-fish
+[submodule "vim/vim.symlink/pack/documentation/start/dash.vim"]
+	path = vim/vim.symlink/pack/documentation/start/dash.vim
+	url = https://github.com/rizzatti/dash.vim
