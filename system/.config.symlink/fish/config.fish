@@ -37,6 +37,7 @@ alias ping="prettyping --nolegend"
 
 # Plugin Configuration
 ## fzf
+set -x FZF_DEFAULT_COMMAND 'rg --files --no-ignore-vcs --hidden'
 set -x FZF_DEFAULT_OPTS "--bind='ctrl-o:execute(vim {} < /dev/tty > /dev/tty)+abort'"
 
 # rbenv

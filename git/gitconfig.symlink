@@ -102,10 +102,7 @@
 	required = true
 	clean = git-lfs clean -- %f
 [user]
-	name = Bernhard Loibl
-	email = mail@bernhardloibl.com
-[github]
-	user = fonkadelic
+  useConfigOnly = true
 [magithub]
 	online = false
 [magithub "status"]
