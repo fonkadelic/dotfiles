@@ -7,47 +7,24 @@ tap "nshipster/formulae"
 tap "pointfreeco/formulae"
 tap "robotsandpencils/made"
 
-
-brew "libpng"
-brew "xz"
-brew "libtiff"
-brew "libssh2"
 brew "aria2"
 brew "autoconf"
 brew "automake"
 brew "bat"
-brew "freetype"
-brew "gdbm"
-brew "glib"
-brew "pkg-config"
-brew "pcre"
 brew "chisel"
 brew "cscope"
 brew "ctags"
 brew "diff-so-fancy"
 brew "duti"
 brew "exa"
-brew "fasd"
 brew "fd"
-brew "gmp"
-brew "libevent"
-brew "libtasn1"
-brew "p11-kit"
-brew "unbound"
-brew "gnutls"
-brew "harfbuzz"
-brew "lame"
-brew "libass"
-brew "pango"
-brew "srt"
-brew "x264"
-brew "xvid"
 brew "ffmpeg"
 brew "fish"
+brew "freetype"
 brew "fzf"
+brew "gdbm"
 brew "gdk-pixbuf"
 brew "gh"
-brew "jbig2dec"
 brew "ghostscript"
 brew "git"
 brew "git-delta"
@@ -55,46 +32,67 @@ brew "git-flow"
 brew "git-lfs"
 brew "git-town"
 brew "glab"
-brew "jpeg", link: true
-brew "tcl-tk"
-brew "librsvg"
-brew "libtool"
+brew "glib"
+brew "gmp"
+brew "gnutls"
 brew "graphviz"
 brew "guile"
+brew "harfbuzz"
 brew "htop"
 brew "icdiff"
-brew "libplist"
-brew "libusb"
-brew "libusbmuxd"
-brew "libimobiledevice"
-brew "libzip"
 brew "ideviceinstaller"
 brew "imagemagick"
+brew "jbig2dec"
+brew "jpeg", link: true
 brew "jq"
+brew "lame"
+brew "libass"
+brew "libevent"
+brew "libimobiledevice"
+brew "libplist"
+brew "libpng"
+brew "librsvg"
+brew "libssh2"
+brew "libtasn1"
+brew "libtiff"
+brew "libtool"
+brew "libusb"
+brew "libusbmuxd"
+brew "libzip"
 brew "mas"
 brew "mint"
 brew "multimarkdown"
 brew "ncdu"
 brew "nmap"
 brew "node"
+brew "nshipster/formulae/xcderiveddata"
+brew "p11-kit"
 brew "pandoc"
+brew "pango"
+brew "pcre"
 brew "peco"
-brew "ruby-build"
+brew "pkg-config"
 brew "rbenv"
 brew "reattach-to-user-namespace"
 brew "ripgrep"
+brew "robotsandpencils/made/xcodes"
 brew "rsync"
 brew "ruby"
+brew "ruby-build"
 brew "sphinx-doc"
+brew "srt"
 brew "ssh-copy-id"
+brew "tcl-tk"
 brew "tldr"
 brew "tmux"
 brew "tree"
+brew "unbound"
 brew "vim"
 brew "wget"
+brew "x264"
+brew "xvid"
+brew "xz"
 brew "youtube-dl"
-brew "nshipster/formulae/xcderiveddata"
-brew "robotsandpencils/made/xcodes"
 
 cask_args appdir: '/Applications'
 cask "1password"
@@ -125,15 +123,12 @@ cask "istat-menus"
 cask "iterm2"
 cask "kaleidoscope"
 cask "karabiner-elements"
-cask 'keyboard-maestro'
-cask 'launchbar'
 cask "mailmate"
 cask "marked"
 cask "moneymoney"
 cask "monodraw"
 cask "moom"
 cask "paw"
-cask 'provisioning'
 cask "proxyman"
 cask "qlcolorcode"
 cask "qlmarkdown"
@@ -144,6 +139,9 @@ cask "reveal"
 cask "shortcat"
 cask "superduper"
 cask "zoom"
+cask 'keyboard-maestro'
+cask 'launchbar'
+cask 'provisioning'
 
 mas "1Blocker", id: 1107421413
 mas "Acorn", id: 1019272813
@@ -157,33 +155,30 @@ mas "Deliveries", id: 924726344
 mas "Diagrams", id: 1276248849
 mas "Dropzone 3", id: 695406827
 mas "Fantastical", id: 975937182
-mas "Gemini", id: 463541543
 mas "GIF Brewery 3", id: 1081413713
+mas "Gemini", id: 463541543
 mas "Gifwit", id: 871200983
-mas "iA Writer", id: 775737590
-mas "iMovie", id: 408981434
-mas "iVI", id: 402279089
 mas "Keynote", id: 409183694
+mas "MPlayerX", id: 421131143
 mas "Mactracker", id: 430255202
 mas "Max Inspect", id: 1438113612
-mas "MPlayerX", id: 421131143
 mas "Next", id: 896146364
 mas "Numbers", id: 409203825
+mas "PCalc", id: 403504866
 mas "Pages", id: 409201541
 mas "Patterns", id: 429449079
-mas "PCalc", id: 403504866
 mas "Pixa", id: 527618971
 mas "PopClip", id: 445189367
 mas "Project Statistics for Xcode", id: 650764572
 mas "Quiver", id: 866773894
 mas "ReadKit", id: 588726889
 mas "Reeder", id: 1449412482
+mas "SQLPro for SQLite", id: 586001240
 mas "Shazam", id: 897118787
 mas "ShotBox", id: 1278619270
 mas "Side Mirror", id: 944860108
 mas "Soulver", id: 413965349
 mas "Spark", id: 1176895641
-mas "SQLPro for SQLite", id: 586001240
 mas "StopTheMadness", id: 1376402589
 mas "The Unarchiver", id: 425424353
 mas "Theine", id: 955848755
@@ -196,4 +191,7 @@ mas "Tweetbot", id: 557168941
 mas "Twitter", id: 409789998
 mas "Unclutter", id: 577085396
 mas "VOX", id: 461369673
+mas "iA Writer", id: 775737590
+mas "iMovie", id: 408981434
+mas "iVI", id: 402279089
 mas "xScope", id: 889428659
