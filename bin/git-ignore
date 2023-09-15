@@ -1,8 +1,0 @@
-#!/usr/bin/env fish
-#
-#
-# Remove ignored files that are already checked in'
-#
-git rm -r --cached .
-git add .
-
