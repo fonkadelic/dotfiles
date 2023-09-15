@@ -9,6 +9,7 @@ set -x EDITOR vim
 
 # Paths
 test -d ~/.dotfiles/bin; and set PATH ~/.dotfiles/bin $PATH
+test -d "/Applications/Sublime Text.app/Contents/SharedSupport/bin"; and set PATH "/Applications/Sublime Text.app/Contents/SharedSupport/bin" $PATH
 
 # Key Bindings
 set -g fish_key_bindings fish_hybrid_key_bindings
@@ -44,4 +45,7 @@ set -x FZF_DEFAULT_OPTS "--bind='ctrl-o:execute(vim {} < /dev/tty > /dev/tty)+ab
 if type -q rbenv
   status --is-interactive; and source (rbenv init - | psub)
 end
+
+# ShellHistory
+source ~/.config/fish/history.fish
 

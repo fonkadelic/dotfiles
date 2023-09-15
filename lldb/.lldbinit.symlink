@@ -14,7 +14,7 @@ command alias stop_reveal expr [(NSNotificationCenter*)[NSNotificationCenter def
 # aliases
 command alias e expr
 command alias poc expression -l objc -O -- (id)
-command alias flush CATransaction.flush()
+command alias flush expression -l objc -- (void)[CATransaction flush]
 command alias args register read arg1 arg2 arg3 arg4 arg5 arg6
 
 # https://twitter.com/kastiglione/status/1009166829757984768?s=12

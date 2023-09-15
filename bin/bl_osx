@@ -308,5 +308,9 @@ defaults write com.apple.dt.Xcode IDEIndexerActivityShowNumericProgress -bool tr
 # https://twitter.com/dmartincy/status/1173289543124029440
 defaults write com.apple.dt.Xcode CodeFoldingAnimationSpeed -int 0
 
+# Make Xcode's Assistant aware of tests
+# https://gist.github.com/danielmartin/8411c303e5c8702c19c65950b49635b8
+defaults write com.apple.dt.Xcode IDEAdditionalCounterpartSuffixes -array-add "Tests"
+
 # Kill affected applications
 for app in Safari Finder Dock Mail SystemUIServer PopClip; do killall "$app" >/dev/null 2>&1; done

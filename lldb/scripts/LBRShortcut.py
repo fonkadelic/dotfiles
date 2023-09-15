@@ -20,7 +20,7 @@ def window_description_command(debbuger, command, result, dict):
 def fire_fault_command(debugger, command, result, dict):
   # command regex fire_fault 's/(.+)/po [%1 willAccessValueForKey:nil]/'
     if len(command) == 0:
-        print "You need to specify the name of a variable"
+        print("You need to specify the name of a variable")
         return
 
     variable_arg = command
@@ -29,7 +29,7 @@ def fire_fault_command(debugger, command, result, dict):
 
 def json_data_command(debugger, command, result, dict):
   if len(command) == 0:
-    print "You need to specify the name of a variable"
+    print("You need to specify the name of a variable")
     return
 
   variable_arg = command
