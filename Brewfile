@@ -157,7 +157,7 @@ mas "Dropzone 3", id: 695406827
 mas "Fantastical", id: 975937182
 mas "GIF Brewery 3", id: 1081413713
 mas "Gemini", id: 463541543
-mas "Gifwit", id: 871200983
+mas "iVI", id: 402279089
 mas "Keynote", id: 409183694
 mas "MPlayerX", id: 421131143
 mas "Mactracker", id: 430255202
@@ -186,7 +186,6 @@ mas "Things", id: 904280696
 mas "ToothFairy", id: 1191449274
 mas "Transmit", id: 403388562
 mas "Transporter", id: 1450874784
-mas "TuneSpan", id: 528459889
 mas "Tweetbot", id: 557168941
 mas "Twitter", id: 409789998
 mas "Unclutter", id: 577085396
