@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set -euo pipefail
+
+echo "- Linking Karabiner Settings"
+
+mkdir -p ~/.config/
+
+ln -sf ~/.dotfiles/karabiner/settings ~/.config/karabiner
