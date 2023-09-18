@@ -1,0 +1,44 @@
+# OSX
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+## Thumbnails
+._*
+## Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+# node
+node_modules/
+
+# vim
+*~
+*.swp
+
+# Xcode
+!default.mode1v3
+!default.mode2v3
+!default.pbxuser
+!default.perspectivev3
+*.hmap
+*.ipa
+*.mode1v3
+*.mode2v3
+*.moved-aside
+*.pbxuser
+*.perspectivev3
+*.xccheckout
+*.xcuserstate
+build/
+DerivedData
+xcuserdata
+
+# Xcode Playgrounds
+*.xctimeline
+
+# Swift Package Manager
+.swiftpm/xcode
+.build
+
+contents.xcworkspacedata

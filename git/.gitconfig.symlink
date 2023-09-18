@@ -1,0 +1,184 @@
+[alias]
+	# show all branches, even across remotes
+	branches = branch -a --color -v
+	# Get short SHA-1 for object
+	hash = rev-parse --short HEAD
+	# remove a file from the index
+	unstage = reset HEAD --
+	co = checkout
+	c = commit
+	cm = commit -m
+	wip = commit -am "wip"
+	h = log --pretty=format:\"%C(cyan)%h %Creset%ad | %s%C(magenta)%d%Creset [%an]\" --graph --date=short
+	hh = log --stat --abbrev-commit
+	ha = shortlog -sn
+	type = cat-file -t
+	dump = cat-file -p
+	r = rm
+	rc = rm --cached
+	km = mergetool
+	d = diff                          # diff unstaged changes
+	dc = diff --cached                # diff staged changes
+	last = diff HEAD^                 # diff last committed change
+	kd = difftool
+	kdc = difftool --cached
+	kdl = difftool HEAD^
+	ks = "!sh -c 'SHA=${1:-HEAD}; git difftool -y -t Kaleidoscope $SHA^..$SHA;' -"
+	review = "!f() { local SHA=${1:-HEAD}; local BRANCH=${2:-develop}; if [ $SHA == $BRANCH ]; then SHA=HEAD; fi; git difftool -y -t Kaleidoscope $BRANCH...$SHA; }; f"
+
+[apply]
+	whitespace = nowarn
+
+[init]
+	templateDir = ~/.dotfiles/git/template/
+
+[color]
+	branch = auto
+	diff   = auto
+	status = auto
+	ui = true
+
+[color "branch"]
+	current = green bold
+	local   = normal
+	remote  = red italic
+	upsteam = yellow
+
+[color "diff"]
+	frag       = magenta bold
+	meta       = yellow bold
+	new        = green bold
+	old        = red italic
+	whitespace = red reverse
+
+[color "status"]
+	added     = green
+	changed   = red bold
+	unmerged  = red
+	untracked = blue
+
+[column]
+	status = auto,row,nodense
+	ui     = auto,row,nodense
+
+[format]
+	pretty = format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C(blue)%s %C(magenta) [%an]%Creset
+
+[branch]
+	autosetupmerge = true
+	sort           = -authordate
+
+[branch "main"]
+	merge  = refs/heads/main
+	remote = origin
+
+[branch "master"]
+	merge  = refs/heads/master
+	remote = origin
+
+[pull]
+  	rebase = true
+
+[push]
+  	default = simple
+	
+[core]
+	autocrlf = false
+  	editor = vim
+	excludesfile = ~/.gitignore
+  	pager = delta
+  	# OSX only
+  	fsyncobjectfiles = true
+
+[interactive]
+	diffFilter = delta --color-only
+
+[credential]
+	helper = osxkeychain
+
+[diff]
+	tool = Kaleidoscope
+
+[merge]
+	tool = Kaleidoscope
+
+[delta]
+ 	features = side-by-side line-numbers decorations
+  	plus-color = "#012800"
+  	minus-color = "#340001"
+  	syntax-theme = DarkNeon
+
+[delta "decorations"]
+	commit-decoration-style = bold yellow box ul
+	file-style = bold yellow ul
+	file-decoration-style = none
+	hunk-header-decoration-style = cyan box ul
+
+[delta "line-numbers"]
+	line-numbers-left-style = cyan
+	line-numbers-right-style = cyan
+	line-numbers-minus-style = 124
+	line-numbers-plus-style = 28
+
+[url "git@github.com:"]
+	insteadOf = "gh:"
+	pushInsteadOf = "github:"
+	pushInsteadOf = "git://github.com/"
+
+[url "git://github.com/"]
+	insteadOf = "github:"
+
+[url "git@gist.github.com:"]
+	insteadOf = "gst:"
+	pushInsteadOf = "gist:"
+	pushInsteadOf = "git://gist.github.com/"
+
+[url "git://gist.github.com/"]
+	insteadOf = "gist:"
+
+[url "git@heroku.com:"]
+	insteadOf = "heroku:"
+
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+
+[difftool "icdiff"]
+	cmd = icdiff $LOCAL $REMOTE --no-bold
+
+[difftool]
+	prompt = false
+
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
+
+[mergetool]
+	prompt = false
+	keepBackup = false
+
+[filter "media"]
+	required = true
+	clean = git media clean %f
+	smudge = git media smudge %f
+
+[filter "hawser"]
+	clean = git hawser clean %f
+	smudge = git hawser smudge %f
+	required = true
+
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+
+[magithub]
+	online = false
+
+[magithub "status"]
+	includeStatusHeader = false
+	includePullRequestsSection = false
+	includeIssuesSection = false
+
+[user]
+	useConfigOnly = true
