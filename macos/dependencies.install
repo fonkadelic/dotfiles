@@ -1,0 +1,7 @@
+#!/bin/sh
+#
+# macOS dependencies
+
+set -euo pipefail
+
+brew bundle --file="~/.dotfiles/macos/Brewfile"
