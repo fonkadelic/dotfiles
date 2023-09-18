@@ -1,3 +1,6 @@
+fish/config/fish_variables
+fish/config/packages/
+
 .netrwhist
 vim/.vundles.local
 vim/bundle
