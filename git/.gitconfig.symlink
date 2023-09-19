@@ -84,12 +84,10 @@
   	default = simple
 	
 [core]
-	autocrlf = false
-  	editor = vim
-	excludesfile = ~/.gitignore
-  	pager = delta
-  	# OSX only
-  	fsyncobjectfiles = true
+  autocrlf = false
+  editor = vim
+  excludesfile = ~/.gitignore
+  pager = delta
 
 [interactive]
 	diffFilter = delta --color-only
