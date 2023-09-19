@@ -1,6 +1,11 @@
 source ~/.config/fish/abbreviations.fish
 source ~/.config/fish/navigation.fish
 
+# Homebrew
+if test -e /opt/homebrew/bin/brew 
+  eval $(/opt/homebrew/bin/brew shellenv)
+end
+
 # Exports
 set -x LANGUAGE "en_US.UTF-8"
 set -x LC_ALL "en_US.UTF-8"
@@ -8,8 +13,9 @@ set -x LANG "en_US.UTF-8"
 set -x EDITOR vim
 
 # Paths
-# TODO: https://fishshell.com/docs/current/cmds/fish_add_path.html
-test -d ~/.dotfiles/bin; and set PATH ~/.dotfiles/bin $PATH
+fish_add_path --append ~/.dotfiles/bin
+fish_add_path --append /usr/local/bin
+fish_add_path --append /usr/local/sbin
 
 # Key Bindings
 set -g fish_key_bindings fish_hybrid_key_bindings
