@@ -25,6 +25,7 @@
 	kdl = difftool HEAD^
 	ks = "!sh -c 'SHA=${1:-HEAD}; git difftool -y -t Kaleidoscope $SHA^..$SHA;' -"
 	review = "!f() { local SHA=${1:-HEAD}; local BRANCH=${2:-develop}; if [ $SHA == $BRANCH ]; then SHA=HEAD; fi; git difftool -y -t Kaleidoscope $BRANCH...$SHA; }; f"
+  subup = submodule update --recursive --init
 
 [apply]
 	whitespace = nowarn
