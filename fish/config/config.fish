@@ -8,8 +8,8 @@ set -x LANG "en_US.UTF-8"
 set -x EDITOR vim
 
 # Paths
+# TODO: https://fishshell.com/docs/current/cmds/fish_add_path.html
 test -d ~/.dotfiles/bin; and set PATH ~/.dotfiles/bin $PATH
-test -d "/Applications/Sublime Text.app/Contents/SharedSupport/bin"; and set PATH "/Applications/Sublime Text.app/Contents/SharedSupport/bin" $PATH
 
 # Key Bindings
 set -g fish_key_bindings fish_hybrid_key_bindings

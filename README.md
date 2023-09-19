@@ -1,5 +1,7 @@
 ~dotfiles
 =================
 
-Heavily inspired by [YADR](https://github.com/skwp/dotfiles "YADR").
+## Installation
 
+1. Clone to `~/.dotfiles`
+2. Run `make`
