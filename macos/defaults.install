@@ -27,11 +27,6 @@ defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking 1
 defaults write com.apple.AppleMultitouchTrackpad Clicking 1
 
-# Use scroll gesture with the Ctrl (^) modifier key to zoom
-defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
-defaults write com.apple.universalaccess HIDScrollZoomModifierMask -int 262144
-
-
 ## Finder
 
 # Display full POSIX path as Finder window title
@@ -77,7 +72,22 @@ defaults write com.apple.dock no-bouncing -bool true
 # Don’t automatically rearrange Spaces based on most recent use
 defaults write com.apple.dock mru-spaces -bool false
 
-# Restart affected applications
+## Sound
+
+# Play user interface sound effects
+defaults write com.apple.systemsound com.apple.sound.uiaudio.enabled -bool false
+
+# Play feedback when volume is changed
+defaults write NSGlobalDomain com.apple.sound.beep.feedback -bool true
+
+# Alert volume
+# Slider level:
+#  "75%": 0.7788008
+#  "50%": 0.6065307
+#  "25%": 0.4723665
+defaults write NSGlobalDomain com.apple.sound.beep.volume -float 0.6065307
+
+### Restart affected applications
 for app in Finder Dock SystemUIServer
 do 
   echo "Restarting $app"

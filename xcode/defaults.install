@@ -94,3 +94,7 @@ defaults write com.apple.dt.Xcode CodeFoldingAnimationSpeed -int 0
 # https://gist.github.com/danielmartin/8411c303e5c8702c19c65950b49635b8
 defaults write com.apple.dt.Xcode IDEAdditionalCounterpartSuffixes -array-add "Tests"
 
+# Disable Xcode Cloud Upselling
+# https://twitter.com/iKenndac/status/1587867958348599308
+defaults write com.apple.dt.Xcode XcodeCloudUpsellPromptEnabled -bool false
+
