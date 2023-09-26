@@ -98,7 +98,6 @@ cask_args appdir: '/Applications'
 cask "1password"
 cask "1password-cli"
 cask "android-studio"
-cask "appcleaner"
 cask "arq"
 cask "asset-catalog-tinkerer"
 cask "bartender"
