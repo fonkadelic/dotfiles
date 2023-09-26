@@ -64,6 +64,7 @@ nnoremap <CR> :noh<CR><CR>
 " Fuzzy Finder
 nnoremap <silent> <C-p> :Files<Cr>
 nnoremap <silent> <C-g> :Rg<Cr>
+nnoremap <silent> \ :Rg<Cr>
 " Rg current word
 nnoremap <silent> <Leader>rg :Rg <C-R><C-W><CR>
 
