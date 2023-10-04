@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>democreateViewController(for:Tab)</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>    private func createViewController(for tab: Tab) -&gt; UIViewController {
+        let viewController: UIViewController
+        switch tab {
+        case .flights:
+            viewController = UIViewController()
+        case .bookings:
+            viewController = UIViewController()
+        case .settings:
+            viewController = UIViewController()
+        }
+
+        let tabBarItem = UITabBarItem.create(for: tab)
+        viewController.tabBarItem = tabBarItem
+        viewController.title = tabBarItem.title
+
+        return viewController
+    }</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>B1069D66-DF0C-497C-8D28-8E6249B0B7ED</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Demo: createViewController(for:Tab)</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

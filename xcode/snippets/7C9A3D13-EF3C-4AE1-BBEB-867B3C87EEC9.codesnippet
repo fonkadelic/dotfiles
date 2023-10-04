@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>exect</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeBlock</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>CFAbsoluteTime startTime = CFAbsoluteTimeGetCurrent();
+
+&lt;#code#&gt;
+
+CFAbsoluteTime execTime = CFAbsoluteTimeGetCurrent() - startTime;
+NSLog(@"Execution time: %f", execTime);</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>7C9A3D13-EF3C-4AE1-BBEB-867B3C87EEC9</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Execution Time [exect]</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

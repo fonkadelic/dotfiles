@@ -19,3 +19,11 @@ readonly bindings=~/Library/Developer/Xcode/UserData/KeyBindings
 mkdir -p $bindings
 ln -sf ~/.dotfiles/xcode/Custom.idekeybindings $bindings
 
+# Link snippets
+readonly snippets=~/Library/Developer/Xcode/UserData/CodeSnippets
+mkdir -p $snippets
+for snippet in ~/.dotfiles/xcode/snippets/*
+do
+  ln -sf "$snippet" $snippets
+done
+

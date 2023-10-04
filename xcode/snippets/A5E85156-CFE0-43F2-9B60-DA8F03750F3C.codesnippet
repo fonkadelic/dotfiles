@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>lumberinit</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeBlock</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>    // Standard lumberjack initialization
+    /// sends log statements to Apple System Logger, so they show up on Console.app
+    [DDLog addLogger:[DDASLLogger sharedInstance]];
+    /// sends log statements to Xcode console - if available
+    [DDLog addLogger:[DDTTYLogger sharedInstance]];
+    /// Enable color output
+    [[DDTTYLogger sharedInstance] setColorsEnabled:YES];</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>A5E85156-CFE0-43F2-9B60-DA8F03750F3C</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Lumberjack Initialization</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

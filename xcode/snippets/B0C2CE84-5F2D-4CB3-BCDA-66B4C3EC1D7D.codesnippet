@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>demouitabbaritemextension</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>extension UITabBarItem {
+    static func create(for tab: Tab) -&gt; UITabBarItem {
+        switch tab {
+        case .flights:
+            return .init(title: "Flights", image: nil, selectedImage: nil)
+        case .bookings:
+            return .init(title: "Bookings", image: nil, selectedImage: nil)
+        case .settings:
+            return .init(title: "Settings", image: nil, selectedImage: nil)
+        }
+    }
+}
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>B0C2CE84-5F2D-4CB3-BCDA-66B4C3EC1D7D</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Demo: UITabBarItem Extension</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
