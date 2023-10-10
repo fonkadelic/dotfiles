@@ -81,10 +81,11 @@
 	remote = origin
 
 [pull]
-  	rebase = true
+  rebase = true
 
 [push]
-  	default = simple
+  default = simple
+  autoSetupRemote = true
 	
 [core]
   autocrlf = false
