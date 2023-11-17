@@ -23,3 +23,4 @@ command regex po 's/(0x[[:xdigit:]]+)/expr -l objc -O -- %1/' 's/(.*)/expr -O --
 command regex rd 's/^[[:space:]]*$/po [[[UIApplication sharedApplication] keyWindow] recursiveDescription]/' 's/^(.+)$/po [%1 recursiveDescription]/'
 command regex at 's/^[[:space:]]*$/po [[[UIApplication sharedApplication] keyWindow] _autolayoutTrace]/' 's/^(.+)$/po [%1 _autolayoutTrace]/'
 
+command script import "~/Library/Application Support/Kaleidoscope/lldb_ksdiff.py"
