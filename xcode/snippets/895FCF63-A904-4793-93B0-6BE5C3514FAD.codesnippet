@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>xct</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>TopLevel</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>import XCTest
+@testable import &lt;#target#&gt;
+
+final class &lt;#name#&gt;Tests: XCTestCase {
+  func testBasics() {
+    &lt;#code#&gt;
+  }
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>895FCF63-A904-4793-93B0-6BE5C3514FAD</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>A template for a test case</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>XCTestCase</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
