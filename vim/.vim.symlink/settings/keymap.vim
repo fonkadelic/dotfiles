@@ -139,7 +139,7 @@ nnoremap <silent> <leader>x :bn<CR>
 nmap <silent> <leader>d <Plug>DashSearch
 
 " Preview in Marked.app
-nnoremap <leader>m :MarkedOpen<CR>
+nnoremap <leader>m :execute 'silent !open -a "Marked 2.app"' '%:p' \| redraw!<CR>
 
 " Source current file
 nmap <silent> <leader>vr :so %<CR>
