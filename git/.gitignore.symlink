@@ -38,7 +38,7 @@ xcuserdata
 *.xctimeline
 
 # Swift Package Manager
-.swiftpm/xcode
+#.swiftpm/xcode
 .build
 
 contents.xcworkspacedata
