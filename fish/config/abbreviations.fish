@@ -9,4 +9,5 @@ if status --is-interactive
   abbr --add --global gco 'fzf-git-checkout'
   abbr --add --global odd 'xcderiveddata | xargs -I{} open {}'
   abbr --add --global filehistory 'fzf --print0 | xargs -0 -o ksdiff'
+  abbr --add --global lofi 'mpv --no-video "https://www.youtube.com/watch?v=jfKfPfyJRdk"'
 end
