@@ -1,0 +1,9 @@
+#!/bin/sh
+
+echo "- Linking ~/.config/zellij"
+
+mkdir -p ~/.config
+rm -rf ~/.config/zellij
+
+ln -sF ~/.dotfiles/zellij/config ~/.config/zellij
+

@@ -36,6 +36,13 @@ if not functions -q fisher
     fish -c fisher
 end
 
+# Startup
+if status is-interactive
+  if not set -q ZELLIJ
+    zellij -l welcome
+  end
+end
+
 # Alias
 alias cat="bat"
 alias top="htop"
