@@ -6,6 +6,9 @@ tap "homebrew/services"
 tap "nshipster/formulae"
 tap "pointfreeco/formulae"
 tap "robotsandpencils/made"
+tap "tuist/tuist"
+tap "xcodesorg/made"
+tap "keith/formulae"
 
 brew "aria2"
 brew "autoconf"
@@ -45,6 +48,7 @@ brew "imagemagick"
 brew "jbig2dec"
 brew "jpeg", link: true
 brew "jq"
+brew "keith/formulae/git-pile"
 brew "lame"
 brew "libass"
 brew "libevent"
@@ -72,19 +76,16 @@ brew "pango"
 brew "pcre"
 brew "peco"
 brew "pkg-config"
-brew "rbenv"
 brew "reattach-to-user-namespace"
 brew "ripgrep"
-brew "robotsandpencils/made/xcodes"
+brew "xcodesorg/made/xcodes"
 brew "rsync"
 brew "ruby"
-brew "ruby-build"
 brew "sphinx-doc"
 brew "srt"
 brew "ssh-copy-id"
 brew "tcl-tk"
 brew "tldr"
-brew "tmux"
 brew "tree"
 brew "unbound"
 brew "vim"
@@ -93,14 +94,13 @@ brew "x264"
 brew "xvid"
 brew "xz"
 brew "youtube-dl"
+brew "zellij"
 
 cask_args appdir: '/Applications'
 cask "1password"
 cask "1password-cli"
-cask "android-studio"
 cask "arq"
 cask "asset-catalog-tinkerer"
-cask "bartender"
 cask "bettertouchtool"
 cask "brave-browser"
 cask "chatology"
@@ -112,29 +112,20 @@ cask "docker"
 cask "drawio"
 cask "figma"
 cask "firefox"
-cask "flutter"
 cask "font-jetbrains-mono"
+cask "ghostty"
 cask "gitup"
 cask "handbrake"
 cask "hazel"
-cask "intellij-idea-ce"
 cask "istat-menus"
 cask "iterm2"
 cask "kaleidoscope"
 cask "karabiner-elements"
 cask "mailmate"
 cask "marked"
-cask "moneymoney"
 cask "monodraw"
 cask "moom"
-cask "paw"
 cask "proxyman"
-cask "qlcolorcode"
-cask "qlmarkdown"
-cask "qlstephen"
-cask "quicklook-csv"
-cask "quicklook-json"
-cask "reveal"
 cask "shortcat"
 cask "superduper"
 cask "zoom"
@@ -147,18 +138,15 @@ mas "Acorn", id: 1019272813
 mas "Affinity Photo", id: 824183456
 mas "Calcbot", id: 931657367
 mas "Carbonize", id: 1451177988
-mas "Cascadea", id: 1432182561
 mas "Copied", id: 1026349850
 mas "Core Data Lab", id: 1460684638
 mas "Deliveries", id: 924726344
 mas "Diagrams", id: 1276248849
-mas "Dropzone 3", id: 695406827
 mas "Fantastical", id: 975937182
 mas "GIF Brewery 3", id: 1081413713
 mas "Gemini", id: 463541543
 mas "iVI", id: 402279089
 mas "Keynote", id: 409183694
-mas "MPlayerX", id: 421131143
 mas "Mactracker", id: 430255202
 mas "Max Inspect", id: 1438113612
 mas "Next", id: 896146364
@@ -182,12 +170,6 @@ mas "StopTheMadness", id: 1376402589
 mas "The Unarchiver", id: 425424353
 mas "Theine", id: 955848755
 mas "Things", id: 904280696
-mas "ToothFairy", id: 1191449274
-mas "Transmit", id: 403388562
-mas "Transporter", id: 1450874784
-mas "Unclutter", id: 577085396
-mas "VOX", id: 461369673
 mas "iA Writer", id: 775737590
-mas "iMovie", id: 408981434
 mas "iVI", id: 402279089
 mas "xScope", id: 889428659
