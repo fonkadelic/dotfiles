@@ -2,18 +2,35 @@ command = /opt/homebrew/bin/fish --login --interactive
 
 shell-integration = fish
 
-keybind = global:cmd+shift+ctrl+alt+i=toggle_quick_terminal
+theme = Catppuccin Macchiato
 
-macos-option-as-alt = left
+cursor-style = bar
+
+keybind = global:cmd+shift+ctrl+alt+i=toggle_quick_terminal
 keybind = alt+left=unbind
 keybind = alt+right=unbind
 
-font-size = 15
+macos-option-as-alt = left
+macos-icon = blueprint
 
-background-opacity = 0.96
-background-blur-radius = 40
+font-family = Berkeley Mono Variable
+font-family = SF Pro
+font-size = 15
+font-style = Retina
+font-style-bold = "Bold"
+font-style-bold-italic = "Bold Oblique"
+font-style-italic = "Retina Oblique"
+font-synthetic-style = ""
+font-variation-italic = "slnt=-4"
+
+background-blur = 40
+background-opacity = 0.85
 
 quick-terminal-screen = macos-menu-bar
+quick-terminal-animation-duration = 0
+quick-terminal-size = 70%
+
+window-colorspace = display-p3
 
 # This is the configuration file for Ghostty.
 #
