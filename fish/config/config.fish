@@ -64,4 +64,4 @@ source ~/.config/fish/history.fish
 # ASDF
 source /opt/homebrew/opt/asdf/libexec/asdf.fish
 # mise
-~/.local/bin/mise activate fish | source
+/opt/homebrew/bin/mise activate fish | source
