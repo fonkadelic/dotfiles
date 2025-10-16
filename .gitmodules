@@ -1,9 +1,6 @@
 [submodule "ruby/rbenv/plugins/rbenv-default-gems"]
 	path = ruby/rbenv/plugins/rbenv-default-gems
 	url = git@github.com:sstephenson/rbenv-default-gems.git
-[submodule "lldb/scripts/kastiglione"]
-	path = lldb/scripts/kastiglione
-	url = https://github.com/kastiglione/lldb-helpers
 [submodule "vim/.vim.symlink/pack/swift/start/swift.vim"]
 	path = vim/.vim.symlink/pack/swift/start/swift.vim
 	url = https://github.com/keith/swift.vim
